@@ -59,7 +59,7 @@ public class InputManager : MonoBehaviour
     // COMBAT-----------------------
     public bool IsCharging1()
     {
-        return playerControls.Player.Shoot1.triggered;
+        return playerControls.Player.Shoot1.ReadValue<float>() > 0.1;
     }
     public bool IsUnReleasing1()
     {
