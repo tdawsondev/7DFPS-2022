@@ -115,6 +115,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1475241923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475241924}
+  m_Layer: 0
+  m_Name: SpellCastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1475241924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475241923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7248289806999931099}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263120457694724189
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,8 +190,9 @@ GameObject:
   - component: {fileID: 7778279161261295155}
   - component: {fileID: 5882223141290539619}
   - component: {fileID: 5728261295458412576}
-  - component: {fileID: 3800321648044799193}
   - component: {fileID: 1880738288}
+  - component: {fileID: 1621471531}
+  - component: {fileID: 1621471532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -218,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5728261295458412576}
   mouseLook: {fileID: 7449592027794341854}
-  shooting: {fileID: 3800321648044799193}
+  shooting: {fileID: 0}
   health: {fileID: 1880738288}
 --- !u!114 &5728261295458412576
 MonoBehaviour:
@@ -246,18 +278,6 @@ MonoBehaviour:
   jumpHeight: 1.5
   gravityValue: -19.62
   movementDisabled: 0
---- !u!114 &3800321648044799193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2709244215890693179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03db15c9d5045fe4ab190e3d90a5d650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1880738288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +292,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   currentHP: 10
+--- !u!114 &1621471531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709244215890693179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c8d9ea70ba65740ba1768e87565620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projSpellToCast: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
+    type: 3}
+  maxMana: 100
+  currentMana: 0
+  manaRechargeRate: 2
+  timeBetweenCasts: 0.25
+  castPoint: {fileID: 1475241924}
+--- !u!114 &1621471532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709244215890693179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03db15c9d5045fe4ab190e3d90a5d650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2730312192705861491
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +765,7 @@ Transform:
   m_Children:
   - {fileID: 1274840176}
   - {fileID: 4119470744944964672}
+  - {fileID: 1475241924}
   m_Father: {fileID: 3180229051942801663}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
