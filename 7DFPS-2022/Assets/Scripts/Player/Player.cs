@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
             Debug.LogWarning("More than one instance of player");
         }
         Instance = this;
+        health.Damaged += TookDamage;
     }
     #endregion
 
@@ -21,6 +22,10 @@ public class Player : MonoBehaviour
     public PlayerShooting shooting;
     public Health health;
 
+    private void OnDestroy()
+    {
+        health.Damaged -= TookDamage;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +37,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TookDamage(float amount)
+    {
+        HUDManager.instance.UpdateHealth();
     }
 }

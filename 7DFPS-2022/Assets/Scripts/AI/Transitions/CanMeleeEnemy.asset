@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39eea4410a1b9c54984d661b0f465587, type: 3}
+  m_Name: CanMeleeEnemy
+  m_EditorClassIdentifier: 
+  Decision: {fileID: 11400000, guid: 10097b7cc861e234290b59ae3a872520, type: 2}
+  TrueState: {fileID: 11400000, guid: 539619335e1e99044be95cee90dd9fa7, type: 2}
+  FalseState: {fileID: 11400000, guid: 27d47960691d04f44b90cc10d514aa7a, type: 2}
