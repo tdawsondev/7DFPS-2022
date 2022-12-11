@@ -8,22 +8,12 @@ public class ProjectileSpell : MonoBehaviour
 
     public SpellScriptableObject SpellToCast;
 
-    private SphereCollider myCollider;
-    private Rigidbody myRigidbody;
-
     private Vector3 projectileDirection;
 
     private bool launched;
 
     private void Awake()
     {
-        myCollider = GetComponent<SphereCollider>();
-        myCollider.isTrigger = true;
-        myCollider.radius = SpellToCast.SpellRadius;
-
-        myRigidbody = GetComponent<Rigidbody>();
-        myRigidbody.isKinematic = true;
-
         Destroy(this.gameObject, SpellToCast.LifeTime);
     }
 
@@ -41,6 +31,7 @@ public class ProjectileSpell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("asdf");
         //apply spell effects
         if (other.tag != "Player")
             Destroy(this.gameObject);
@@ -50,7 +41,6 @@ public class ProjectileSpell : MonoBehaviour
     {
         launched = true;
         projectileDirection = direction;
-        Debug.Log(direction);
     }
 
 }

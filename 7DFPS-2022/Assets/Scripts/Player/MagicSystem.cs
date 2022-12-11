@@ -38,10 +38,8 @@ public class MagicSystem : MonoBehaviour
         void CastSpell()
         {
             //cast spell
-            print("proj cast");
             ProjectileSpell ps = Instantiate(projSpellToCast, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
             ps.Launch(Camera.main.transform.forward);
-            Debug.Log(castPoint.forward);
         }
     }
 }
