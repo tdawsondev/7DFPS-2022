@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1274840176
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5728261295458412576}
   mouseLook: {fileID: 7449592027794341854}
-  shooting: {fileID: 0}
   health: {fileID: 1880738288}
 --- !u!114 &5728261295458412576
 MonoBehaviour:
@@ -482,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2016290769999567031
 Transform:
   m_ObjectHideFlags: 0

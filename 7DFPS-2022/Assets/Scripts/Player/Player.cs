@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     public PlayerMovement playerMovement;
     public MouseLook mouseLook;
-    public PlayerShooting shooting;
     public Health health;
 
     private void OnDestroy()
@@ -37,6 +36,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         
+    }
+    public void LockPlayer()
+    {
+        playerMovement.movementDisabled = true;
+        mouseLook.lookLocked = true;
+    }
+    public void UnlockPlayer()
+    {
+        playerMovement.movementDisabled = false;
+        mouseLook.lookLocked = false;
     }
 
     public void TookDamage(float amount)
