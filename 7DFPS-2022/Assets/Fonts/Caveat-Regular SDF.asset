@@ -521,8 +521,8 @@ MonoBehaviour:
     m_GlyphIndex: 43
     m_Scale: 1
   - m_ElementType: 1
-    m_Unicode: 72
-    m_GlyphIndex: 49
+    m_Unicode: 51
+    m_GlyphIndex: 818
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 77
