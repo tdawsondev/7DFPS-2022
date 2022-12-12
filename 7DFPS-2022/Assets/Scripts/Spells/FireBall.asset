@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cb828a77d443148bce52092a4b6b53, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 5
   ManaCost: 5
   LifeTime: 2
   Speed: 15

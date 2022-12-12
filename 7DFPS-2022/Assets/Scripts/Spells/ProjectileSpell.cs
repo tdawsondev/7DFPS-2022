@@ -33,7 +33,7 @@ public class ProjectileSpell : MonoBehaviour
     {
         if (other.tag == tagToHit)
         {
-            //other.GetComponent<Health>().Damage(SpellToCast.Damage);
+            other.GetComponent<Health>().Damage(SpellToCast.Damage);
         }
 
         Destroy(this.gameObject);

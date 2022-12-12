@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MagicSystem : MonoBehaviour
 {
+
+    public bool SystemLocked = false;
     [SerializeField] private ProjectileSpell projSpellToCast;
 
     [SerializeField] private float maxMana = 100f;
@@ -21,6 +23,7 @@ public class MagicSystem : MonoBehaviour
 
     private void Update()
     {
+        if (SystemLocked) return; // ignores update function if system is locked
         bool isSpellCastHeldDown = InputManager.Instance.IsCharging1();
         bool isSpellReleasing = InputManager.Instance.IsUnReleasing1();
 

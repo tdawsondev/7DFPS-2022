@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 5728261295458412576}
+  magicSystem: {fileID: 1621471531}
   mouseLook: {fileID: 7449592027794341854}
   health: {fileID: 1880738288}
 --- !u!114 &5728261295458412576
@@ -303,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8d9ea70ba65740ba1768e87565620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SystemLocked: 0
   projSpellToCast: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
     type: 3}
   maxMana: 100

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     #endregion
 
     public PlayerMovement playerMovement;
+    public MagicSystem magicSystem;
     public MouseLook mouseLook;
     public Health health;
 
@@ -41,11 +42,14 @@ public class Player : MonoBehaviour
     {
         playerMovement.movementDisabled = true;
         mouseLook.lookLocked = true;
+        magicSystem.SystemLocked = true;
     }
     public void UnlockPlayer()
     {
         playerMovement.movementDisabled = false;
         mouseLook.lookLocked = false;
+        magicSystem.SystemLocked = false;
+
     }
 
     public void TookDamage(float amount)
