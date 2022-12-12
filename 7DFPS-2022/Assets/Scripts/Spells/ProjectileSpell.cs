@@ -22,7 +22,6 @@ public class ProjectileSpell : MonoBehaviour
         if (launched) { 
             if (SpellToCast.Speed > 0)
             {
-
                 //transform.Translate(projectileDirection * SpellToCast.Speed * Time.deltaTime);
                 transform.position += projectileDirection * Time.deltaTime * SpellToCast.Speed;
             }
