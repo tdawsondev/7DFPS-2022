@@ -9,22 +9,34 @@ public class MagicSystem : MonoBehaviour
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate = 2f;
-    [SerializeField] private float timeBetweenCasts = 0.25f;
+    [SerializeField] private float timeBetweenCasts = 0.5f;
     private float currentCastTimer;
+    private float currentChargeTimer;
 
 
     [SerializeField] private Transform castPoint;
 
     private bool castingMagic = false;
+    private bool isCharging = false;
 
     private void Update()
     {
         bool isSpellCastHeldDown = InputManager.Instance.IsCharging1();
-        if (!castingMagic && isSpellCastHeldDown)
+        bool isSpellReleasing = InputManager.Instance.IsUnReleasing1();
+
+        if (isSpellCastHeldDown && !castingMagic)
+        {
+            isCharging = true;
+            currentChargeTimer += Time.deltaTime;
+            HUDManager.instance.UpdateCharge(currentChargeTimer);
+        }
+
+        if (isSpellReleasing && isCharging)
         {
             castingMagic = true;
+            isCharging = false;
             currentCastTimer = 0;
-            //print("casting spell");
+            currentChargeTimer = 0;
             CastSpell();
         }
 
@@ -32,14 +44,16 @@ public class MagicSystem : MonoBehaviour
         {
             currentCastTimer += Time.deltaTime;
 
-            if (currentCastTimer > timeBetweenCasts) castingMagic = false;
+            if (currentCastTimer > timeBetweenCasts)
+                castingMagic = false;
         }
+
 
         void CastSpell()
         {
             //cast spell
             ProjectileSpell ps = Instantiate(projSpellToCast, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
-            ps.Launch(Camera.main.transform.forward);
+            ps.Launch(Camera.main.transform.forward, "Enemy");
         }
     }
 }

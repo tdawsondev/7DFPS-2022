@@ -11,6 +11,7 @@ public class ProjectileSpell : MonoBehaviour
     private Vector3 projectileDirection;
 
     private bool launched;
+    private string tagToHit;
 
     private void Awake()
     {
@@ -30,14 +31,18 @@ public class ProjectileSpell : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("asdf");
-        //apply spell effects
-        if (other.tag != "Player")
-            Destroy(this.gameObject);
+        if (other.tag == tagToHit)
+        {
+            //other.GetComponent<Health>().Damage(SpellToCast.Damage);
+        }
+
+        Destroy(this.gameObject);
+
     }
 
-    public void Launch(Vector3 direction)
+    public void Launch(Vector3 direction, string tagToHit)
     {
+        this.tagToHit = tagToHit;
         launched = true;
         projectileDirection = direction;
     }

@@ -19,6 +19,8 @@ public class HUDManager : MonoBehaviour
 
     public Slider ManaSlider;
     public TextMeshProUGUI healthText; // temporary
+    public TextMeshProUGUI chargeText; // temporary
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,5 +42,10 @@ public class HUDManager : MonoBehaviour
     public void UpdateHealth()
     {
         healthText.text = "HP: " +Player.Instance.health.currentHP;
+    }
+
+    public void UpdateCharge(float currentCharge)
+    {
+        chargeText.text = "Charge: " + currentCharge.ToString("n2");
     }
 }
