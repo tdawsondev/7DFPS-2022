@@ -11,10 +11,6 @@ public class MagicSystem : MonoBehaviour
     [SerializeField] private ProjectileSpell projSpellToCastRH;
     [SerializeField] private ProjectileSpell projSpellToCastLH;
 
-    [SerializeField] private float maxMana = 100f;
-    [SerializeField] private float currentMana;
-    [SerializeField] private float manaRechargeRate = 2f;
-
     private float currentCastTimerRH;
     private float currentCastTimerLH;
     private float currentChargeTimerRH;
@@ -122,7 +118,6 @@ public class MagicSystem : MonoBehaviour
 
                 //Lower mana
                 Player.Instance.mana.LoseMana(projectileSpell.SpellToCast.ManaCost);
-                HUDManager.instance.UpdateManaSlider();
             }
         }
 

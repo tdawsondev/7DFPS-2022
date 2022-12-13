@@ -10,7 +10,6 @@ public class ManaRechargeObject : MonoBehaviour
         if (other.tag == "Player")
         {
             Player.Instance.mana.Recharge();
-            HUDManager.instance.UpdateManaSlider();
             Destroy(this.gameObject);
         }
     }
