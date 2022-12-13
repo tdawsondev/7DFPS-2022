@@ -34,10 +34,10 @@ public class HUDManager : MonoBehaviour
         
     }
 
-    public void UpdateManaSlider(int currentMana, int maxMana)
+    public void UpdateManaSlider()
     {
-        ManaSlider.maxValue = maxMana;
-        ManaSlider.value = currentMana;
+        ManaSlider.maxValue = Player.Instance.mana.maxMana;
+        ManaSlider.value = Player.Instance.mana.currentMana;
     }
 
     public void UpdateHealth()

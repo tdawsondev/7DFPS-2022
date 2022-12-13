@@ -3852,6 +3852,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1972434634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2709244215890693179, guid: c602917324916f04c9e0359fa31a9927,
+    type: 3}
+  m_PrefabInstance: {fileID: 7248289807227723025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1972434639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5882223141290539619, guid: c602917324916f04c9e0359fa31a9927,
+    type: 3}
+  m_PrefabInstance: {fileID: 7248289807227723025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972434634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2567b09d4fba3447b1ce257dbefa714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1972434642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972434634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9aa19e18e1b7f4582fe2934e6e308b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 0
+  currentMana: 0
 --- !u!1001 &2011365046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4350,6 +4382,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1972434639}
+    - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: maxMana
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: currentMana
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
       propertyPath: projSpellToCastLH
       value: 
       objectReference: {fileID: 3241415872834202334, guid: fe34482f1c3864846b2bc5b3738bc643,
@@ -4419,6 +4463,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5882223141290539619, guid: c602917324916f04c9e0359fa31a9927,
+        type: 3}
+      propertyPath: mana
+      value: 
+      objectReference: {fileID: 1972434642}
     - target: {fileID: 5882223141290539619, guid: c602917324916f04c9e0359fa31a9927,
         type: 3}
       propertyPath: shooting

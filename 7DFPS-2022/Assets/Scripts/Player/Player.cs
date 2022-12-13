@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public MagicSystem magicSystem;
     public MouseLook mouseLook;
     public Health health;
+    public Mana mana;
 
     private void OnDestroy()
     {
@@ -55,5 +56,10 @@ public class Player : MonoBehaviour
     public void TookDamage(float amount)
     {
         HUDManager.instance.UpdateHealth();
+    }
+
+    public void LostMana(float amount)
+    {
+        HUDManager.instance.UpdateManaSlider();
     }
 }
