@@ -6,15 +6,20 @@ using UnityEngine;
 public class SpellScriptableObject : ScriptableObject
 {
 
-    public float Damage = 10f;
+    //Spell constants
     public float ManaCost = 5f;
+    public float TimeBetweenCasts = 0.5f;
+    public float ChargeTime = 1.0f;
+
+    //Projectile spell variables
+    public float Damage = 10f;
     public float LifeTime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
-    public float ChargeTime = 1.0f;
-    public float TimeBetweenCasts = 0.5f;
 
-    //Time between casts
+    //Buff spell variables
+    public float Healing = 3f;
+
     //Status effects
 
 }

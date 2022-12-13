@@ -13,12 +13,21 @@ public class Health : MonoBehaviour
     public void Damage(float amount)
     {
         currentHP -= amount;
+        if (currentHP > maxHP)
+            currentHP = maxHP;
+        if (currentHP < 0)
+            currentHP = 0;
         Damaged(amount);
     }
 
     public void Kill()
     {
         Damage(currentHP);
+    }
+
+    public void Heal(float amount)
+    {
+        Damage(-amount);
     }
 
     public bool Dead

@@ -8,8 +8,8 @@ public class MagicSystem : MonoBehaviour
     [SerializeField] private Player player;
 
     public bool SystemLocked = false;
-    [SerializeField] private ProjectileSpell projSpellToCastRH;
-    [SerializeField] private ProjectileSpell projSpellToCastLH;
+    [SerializeField] private Spell spellToCastRH;
+    [SerializeField] private Spell spellToCastLH;
 
     private float currentCastTimerRH;
     private float currentCastTimerLH;
@@ -54,8 +54,8 @@ public class MagicSystem : MonoBehaviour
                 castingMagicRH = true;
                 isChargingRH = false;
 
-                if (currentChargeTimerRH >= projSpellToCastRH.SpellToCast.ChargeTime)
-                    CastSpell(projSpellToCastRH);
+                if (currentChargeTimerRH >= spellToCastRH.SpellToCast.ChargeTime)
+                    spellToCastRH.CastSpell(castPoint);
 
                 currentCastTimerRH = 0;
                 currentChargeTimerRH = 0;
@@ -67,7 +67,7 @@ public class MagicSystem : MonoBehaviour
             {
                 currentCastTimerRH += Time.deltaTime;
 
-                if (currentCastTimerRH > projSpellToCastRH.SpellToCast.TimeBetweenCasts)
+                if (currentCastTimerRH > spellToCastRH.SpellToCast.TimeBetweenCasts)
                     castingMagicRH = false;
             }
         }
@@ -91,8 +91,8 @@ public class MagicSystem : MonoBehaviour
                 castingMagicLH = true;
                 isChargingLH = false;
 
-                if (currentChargeTimerLH >= projSpellToCastLH.SpellToCast.ChargeTime)
-                    CastSpell(projSpellToCastLH);
+                if (currentChargeTimerLH >= spellToCastLH.SpellToCast.ChargeTime)
+                    spellToCastLH.CastSpell(castPoint);
 
                 currentCastTimerLH = 0;
                 currentChargeTimerLH = 0;
@@ -104,22 +104,22 @@ public class MagicSystem : MonoBehaviour
             {
                 currentCastTimerLH += Time.deltaTime;
 
-                if (currentCastTimerLH > projSpellToCastLH.SpellToCast.TimeBetweenCasts)
+                if (currentCastTimerLH > spellToCastLH.SpellToCast.TimeBetweenCasts)
                     castingMagicLH = false;
             }
         }
 
-        void CastSpell(ProjectileSpell projectileSpell)
-        {
-            if (Player.Instance.mana.currentMana >= projectileSpell.SpellToCast.ManaCost)
-            {
-                ProjectileSpell ps = Instantiate(projectileSpell, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
-                ps.Launch(Camera.main.transform.forward, "Enemy");
+        //void CastSpell(Spell projectileSpell)
+        //{
+        //    if (Player.Instance.mana.currentMana >= projectileSpell.SpellToCast.ManaCost)
+        //    {
+        //        ProjectileSpell ps = Instantiate(projectileSpell, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
+        //        ps.Launch(Camera.main.transform.forward, "Enemy");
 
-                //Lower mana
-                Player.Instance.mana.LoseMana(projectileSpell.SpellToCast.ManaCost);
-            }
-        }
+        //        //Lower mana
+        //        Player.Instance.mana.LoseMana(projectileSpell.SpellToCast.ManaCost);
+        //    }
+        //}
 
 
     }

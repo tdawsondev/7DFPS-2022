@@ -4472,6 +4472,16 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: spellToCastLH
+      value: 
+      objectReference: {fileID: 3111863103843434604, guid: fa09d221090fa804ab0fcbaa23c7905a,
+        type: 3}
+    - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: spellToCastRH
+      value: 
+      objectReference: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
+        type: 3}
+    - target: {fileID: 1621471531, guid: c602917324916f04c9e0359fa31a9927, type: 3}
       propertyPath: projSpellToCastLH
       value: 
       objectReference: {fileID: 3241415872834202334, guid: fe34482f1c3864846b2bc5b3738bc643,
@@ -4481,6 +4491,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
         type: 3}
+    - target: {fileID: 1880738288, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+      propertyPath: currentHP
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 820216849202638726, guid: c602917324916f04c9e0359fa31a9927,
         type: 3}
       propertyPath: m_IsTrigger
@@ -4562,5 +4576,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7113459710978026849, guid: c602917324916f04c9e0359fa31a9927, type: 3}
+    - {fileID: 1972434642, guid: c602917324916f04c9e0359fa31a9927, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c602917324916f04c9e0359fa31a9927, type: 3}

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ProjectileSpell : MonoBehaviour
+public class ProjectileSpell : Spell
 {
-
-    public SpellScriptableObject SpellToCast;
 
     private Vector3 projectileDirection;
 
@@ -28,7 +26,7 @@ public class ProjectileSpell : MonoBehaviour
             }
         }
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == tagToHit)
@@ -46,6 +44,18 @@ public class ProjectileSpell : MonoBehaviour
         this.tagToHit = tagToHit;
         launched = true;
         projectileDirection = direction;
+    }
+
+    public override void CastSpell(Transform castPoint)
+    {
+        if (Player.Instance.mana.currentMana >= SpellToCast.ManaCost)
+        {
+            ProjectileSpell ps = Instantiate(this, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
+            ps.Launch(Camera.main.transform.forward, "Enemy");
+
+            //Lower mana
+            Player.Instance.mana.LoseMana(SpellToCast.ManaCost);
+        }
     }
 
 }
