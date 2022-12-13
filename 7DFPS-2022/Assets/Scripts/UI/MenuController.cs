@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     public bool paused = false;
     public Animator pauseAnimator;
     public Animator fadeAnimator;
+    public CanvasGroup settingsCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,9 @@ public class MenuController : MonoBehaviour
     }
     private IEnumerator IEUnpause()
     {
+        settingsCanvas.alpha = 0f;
+        settingsCanvas.interactable = false;
+        settingsCanvas.blocksRaycasts = false;
         pauseAnimator.SetTrigger("FadeOut");
         yield return new WaitForSecondsRealtime(0.15f);
         paused = false;
