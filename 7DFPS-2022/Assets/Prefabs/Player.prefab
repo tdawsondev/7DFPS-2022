@@ -193,6 +193,8 @@ GameObject:
   - component: {fileID: 1880738288}
   - component: {fileID: 1621471531}
   - component: {fileID: 1621471532}
+  - component: {fileID: 1972434642}
+  - component: {fileID: 7113459710978026849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -252,6 +254,7 @@ MonoBehaviour:
   magicSystem: {fileID: 1621471531}
   mouseLook: {fileID: 7449592027794341854}
   health: {fileID: 1880738288}
+  mana: {fileID: 7113459710978026849}
 --- !u!114 &5728261295458412576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,13 +307,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c8d9ea70ba65740ba1768e87565620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5882223141290539619}
   SystemLocked: 0
-  projSpellToCast: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
+  projSpellToCastRH: {fileID: 4595062817515346033, guid: 0d66b67e87750914ab922b05c5372810,
     type: 3}
-  maxMana: 100
-  currentMana: 0
+  projSpellToCastLH: {fileID: 3241415872834202334, guid: fe34482f1c3864846b2bc5b3738bc643,
+    type: 3}
+  maxMana: 20
+  currentMana: 10
   manaRechargeRate: 2
-  timeBetweenCasts: 0.25
   castPoint: {fileID: 1475241924}
 --- !u!114 &1621471532
 MonoBehaviour:
@@ -324,6 +329,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03db15c9d5045fe4ab190e3d90a5d650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1972434642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709244215890693179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9aa19e18e1b7f4582fe2934e6e308b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 0
+  currentMana: 0
+--- !u!114 &7113459710978026849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709244215890693179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af9aa19e18e1b7f4582fe2934e6e308b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 0
+  currentMana: 0
 --- !u!1 &2730312192705861491
 GameObject:
   m_ObjectHideFlags: 0

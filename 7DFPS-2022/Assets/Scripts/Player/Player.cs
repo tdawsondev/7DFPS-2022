@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
         }
         Instance = this;
         health.Damaged += TookDamage;
+        mana.ManaLowered += LostMana;
     }
     #endregion
 
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         health.Damaged -= TookDamage;
+        mana.ManaLowered -= LostMana;
     }
 
     // Start is called before the first frame update
