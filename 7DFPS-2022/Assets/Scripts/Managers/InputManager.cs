@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
     }
     public bool IsCharging2()
     {
-        return playerControls.Player.Shoot2.triggered;
+        return playerControls.Player.Shoot2.ReadValue<float>() > 0.1;
     }
     public bool IsUnReleasing2()
     {

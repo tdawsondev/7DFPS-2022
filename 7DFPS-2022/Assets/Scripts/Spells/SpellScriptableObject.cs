@@ -11,6 +11,8 @@ public class SpellScriptableObject : ScriptableObject
     public float LifeTime = 2f;
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
+    public float ChargeTime = 1.0f;
+    public float TimeBetweenCasts = 0.5f;
 
     //Time between casts
     //Status effects

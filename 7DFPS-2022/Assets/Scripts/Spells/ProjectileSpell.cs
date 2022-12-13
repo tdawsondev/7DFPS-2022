@@ -36,7 +36,8 @@ public class ProjectileSpell : MonoBehaviour
             other.GetComponent<Health>().Damage(SpellToCast.Damage);
         }
 
-        Destroy(this.gameObject);
+        if (other.tag != "Spell")
+            Destroy(this.gameObject);
 
     }
 

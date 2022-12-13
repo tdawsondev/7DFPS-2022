@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98cb828a77d443148bce52092a4b6b53, type: 3}
-  m_Name: FireBall
+  m_Name: Freeze
   m_EditorClassIdentifier: 
-  Damage: 5
+  Damage: 10
   ManaCost: 5
   LifeTime: 5
-  Speed: 15
+  Speed: 5
   SpellRadius: 0.5
-  ChargeTime: 1
-  TimeBetweenCasts: 0.5
+  ChargeTime: 2
+  TimeBetweenCasts: 1

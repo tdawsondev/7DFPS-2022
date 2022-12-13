@@ -6,57 +6,114 @@ public class MagicSystem : MonoBehaviour
 {
 
     public bool SystemLocked = false;
-    [SerializeField] private ProjectileSpell projSpellToCast;
+    [SerializeField] private ProjectileSpell projSpellToCastRH;
+    [SerializeField] private ProjectileSpell projSpellToCastLH;
 
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate = 2f;
-    [SerializeField] private float timeBetweenCasts = 0.5f;
-    private float currentCastTimer;
-    private float currentChargeTimer;
 
+    private float currentCastTimerRH;
+    private float currentCastTimerLH;
+    private float currentChargeTimerRH;
+    private float currentChargeTimerLH;
 
     [SerializeField] private Transform castPoint;
 
-    private bool castingMagic = false;
-    private bool isCharging = false;
+    private bool castingMagicRH = false;
+    private bool castingMagicLH = false;
+    private bool isChargingRH = false;
+    private bool isChargingLH = false;
 
     private void Update()
     {
-        if (SystemLocked) return; // ignores update function if system is locked
-        bool isSpellCastHeldDown = InputManager.Instance.IsCharging1();
-        bool isSpellReleasing = InputManager.Instance.IsUnReleasing1();
 
-        if (isSpellCastHeldDown && !castingMagic)
+        RightMagic();
+        LeftMagic();
+
+
+        void RightMagic()
         {
-            isCharging = true;
-            currentChargeTimer += Time.deltaTime;
-            HUDManager.instance.UpdateCharge(currentChargeTimer);
+            if (SystemLocked) return; // ignores update function if system is locked
+
+            bool isSpellCastHeldDown = InputManager.Instance.IsCharging1();
+            bool isSpellReleasing = InputManager.Instance.IsUnReleasing1();
+
+            if (isSpellCastHeldDown && !castingMagicRH)
+            {
+                isChargingRH = true;
+                currentChargeTimerRH += Time.deltaTime;
+                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
+            }
+
+            if (isSpellReleasing && isChargingRH)
+            {
+                castingMagicRH = true;
+                isChargingRH = false;
+
+                if (currentChargeTimerRH >= projSpellToCastRH.SpellToCast.ChargeTime)
+                    CastSpell(projSpellToCastRH);
+
+                currentCastTimerRH = 0;
+                currentChargeTimerRH = 0;
+                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
+            }
+
+            //gives a small cooldown between casting spells
+            if (castingMagicRH)
+            {
+                currentCastTimerRH += Time.deltaTime;
+
+                if (currentCastTimerRH > projSpellToCastRH.SpellToCast.TimeBetweenCasts)
+                    castingMagicRH = false;
+            }
         }
 
-        if (isSpellReleasing && isCharging)
+        void LeftMagic()
         {
-            castingMagic = true;
-            isCharging = false;
-            currentCastTimer = 0;
-            currentChargeTimer = 0;
-            CastSpell();
+            if (SystemLocked) return; // ignores update function if system is locked
+
+            bool isSpellCastHeldDown = InputManager.Instance.IsCharging2();
+            bool isSpellReleasing = InputManager.Instance.IsUnReleasing2();
+
+            if (isSpellCastHeldDown && !castingMagicLH)
+            {
+                isChargingLH = true;
+                currentChargeTimerLH += Time.deltaTime;
+                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
+            }
+
+            if (isSpellReleasing && isChargingLH)
+            {
+                castingMagicLH = true;
+                isChargingLH = false;
+
+                if (currentChargeTimerLH >= projSpellToCastLH.SpellToCast.ChargeTime)
+                    CastSpell(projSpellToCastLH);
+
+                currentCastTimerLH = 0;
+                currentChargeTimerLH = 0;
+                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
+            }
+
+            //gives a small cooldown between casting spells
+            if (castingMagicLH)
+            {
+                currentCastTimerLH += Time.deltaTime;
+
+                if (currentCastTimerLH > projSpellToCastLH.SpellToCast.TimeBetweenCasts)
+                    castingMagicLH = false;
+            }
         }
 
-        if (castingMagic)
-        {
-            currentCastTimer += Time.deltaTime;
-
-            if (currentCastTimer > timeBetweenCasts)
-                castingMagic = false;
-        }
-
-
-        void CastSpell()
+        void CastSpell(ProjectileSpell projectileSpell)
         {
             //cast spell
-            ProjectileSpell ps = Instantiate(projSpellToCast, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
+            ProjectileSpell ps = Instantiate(projectileSpell, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
             ps.Launch(Camera.main.transform.forward, "Enemy");
         }
+
+
     }
+
 }
