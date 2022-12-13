@@ -7,14 +7,16 @@ public class Mana : MonoBehaviour
 
     public float maxMana, currentMana;
 
-    // event that allows you to check whenever mana is changed
-    public delegate void LostMana(float amount);
-    public event LostMana ManaLowered;
+
 
     public void LoseMana(float amount)
     {
         currentMana -= amount;
-        ManaLowered(amount);
+    }
+
+    public void Recharge()
+    {
+        currentMana = maxMana;
     }
 
     public bool OutOfMana

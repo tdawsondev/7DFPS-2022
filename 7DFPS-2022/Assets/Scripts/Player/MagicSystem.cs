@@ -27,6 +27,11 @@ public class MagicSystem : MonoBehaviour
     private bool isChargingRH = false;
     private bool isChargingLH = false;
 
+    private void Start()
+    {
+        HUDManager.instance.UpdateManaSlider();
+    }
+
     private void Update()
     {
 
@@ -110,11 +115,15 @@ public class MagicSystem : MonoBehaviour
 
         void CastSpell(ProjectileSpell projectileSpell)
         {
-            //if have enough mana
-            ProjectileSpell ps = Instantiate(projectileSpell, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
-            ps.Launch(Camera.main.transform.forward, "Enemy");
-            //Lower mana
-            //Player.Instance.mana.LoseMana(projectileSpell.SpellToCast.ManaCost);
+            if (Player.Instance.mana.currentMana >= projectileSpell.SpellToCast.ManaCost)
+            {
+                ProjectileSpell ps = Instantiate(projectileSpell, castPoint.position, castPoint.rotation).GetComponent<ProjectileSpell>();
+                ps.Launch(Camera.main.transform.forward, "Enemy");
+
+                //Lower mana
+                Player.Instance.mana.LoseMana(projectileSpell.SpellToCast.ManaCost);
+                HUDManager.instance.UpdateManaSlider();
+            }
         }
 
 
