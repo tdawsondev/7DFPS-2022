@@ -62,3 +62,52 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - clipName: Footsteps1
+    type: 0
+    clip: {fileID: 8300000, guid: 9809c6166b617564598f0002390c17c5, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps2
+    type: 0
+    clip: {fileID: 8300000, guid: 3696c9e79a880974ca907220d40ff306, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps3
+    type: 0
+    clip: {fileID: 8300000, guid: daea1b6e2715153448d51d4145a55f7a, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps4
+    type: 0
+    clip: {fileID: 8300000, guid: 04a7c56fd398a184083014e19a01531d, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps5
+    type: 0
+    clip: {fileID: 8300000, guid: 19cfb462a76387e41b56734c8096f6fc, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: SpellCharge
+    type: 0
+    clip: {fileID: 8300000, guid: f258421b479af1944b6507fb5cbfafae, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: SpellCast
+    type: 0
+    clip: {fileID: 8300000, guid: 084fc2b35a262564b8b7ac4288a709c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

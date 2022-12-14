@@ -55,6 +55,12 @@ public class PlayerMovement : MonoBehaviour
     private float movementSpeed;
 
 
+    [Header("Audio")]
+    public float loopTime;
+    private float currentLoopTime;
+    private int lastSound = 0;
+    private bool audioPlaying;
+
 
     private void Start()
     {
@@ -65,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
         defaultFOV = Camera.main.fieldOfView;
         defaultHeight = controller.height;
         crouchOffset = (defaultHeight - crouchHeight) / 2f; // where does the new center of the controller have to be
+        currentLoopTime = loopTime;
+        audioPlaying = false;
     }
 
     void Update()
@@ -77,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (groundedPlayer && playerVelocity.y < 0)
         {
-            playerVelocity.y = 0f;
+            playerVelocity.y = -1f;
         }
         if (currentJumps == 2 && !groundedPlayer)
         {
@@ -103,6 +111,18 @@ public class PlayerMovement : MonoBehaviour
         
 
         Vector2 input = GetSmoothedInput();
+        if(input.magnitude > 0f && !audioPlaying)
+        {
+            //start audio
+            StartCoroutine(AuidoLoop());
+        }
+        
+        if(input.magnitude <= 0f)
+        {
+            //stop audio
+            audioPlaying = false;
+            StopAllCoroutines();
+        }
         GetMovementSpeed(input);
 
         Vector3 move = new Vector3(input.x, 0, input.y);
@@ -191,4 +211,48 @@ public class PlayerMovement : MonoBehaviour
         return new Vector2(rX, ry);
 
     }
+
+    public void PlayFootStepNoise()
+    {
+        lastSound = lastSound + 1;
+        if(lastSound> 5)
+        {
+            lastSound = 1;
+        }
+        AudioManager.instance.Play("Footsteps" + lastSound);
+    }
+
+    public IEnumerator AuidoLoop()
+    {
+        audioPlaying = true;
+        while (true)
+        {
+            if (!groundedPlayer)
+            {
+                currentLoopTime = 0;
+            }
+            else if (sprinting)
+            {
+                float speedIncrease = sprintSpeed / playerSpeed;
+                currentLoopTime = loopTime * speedIncrease;
+            }
+            else if (crouching)
+            {
+                float speedIncrease = crouchWalkSpeed / playerSpeed;
+                currentLoopTime = loopTime * speedIncrease;
+            }
+            else
+            {
+                currentLoopTime = loopTime;
+            }
+
+            if (currentLoopTime > 0)
+            {
+                PlayFootStepNoise();
+                yield return new WaitForSeconds(1 / currentLoopTime);
+            }
+            else yield return null;
+        }
+    }
+
 }

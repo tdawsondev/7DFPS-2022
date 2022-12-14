@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cb828a77d443148bce52092a4b6b53, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  Damage: 2
   ManaCost: 5
-  LifeTime: 5
-  Speed: 15
-  SpellRadius: 0.5
-  ChargeTime: 0.5
   TimeBetweenCasts: 0.25
+  ChargeTime: 0.5
+  Damage: 2
+  LifeTime: 5
+  Speed: 30
+  SpellRadius: 0.5
+  Healing: 3

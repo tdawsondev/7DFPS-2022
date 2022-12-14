@@ -23,6 +23,8 @@ public class MagicSystem : MonoBehaviour
     private bool isChargingRH = false;
     private bool isChargingLH = false;
 
+    private AudioSource chargingSound;
+
     private void Start()
     {
         HUDManager.instance.UpdateManaSlider();
@@ -44,6 +46,10 @@ public class MagicSystem : MonoBehaviour
 
             if (isSpellCastHeldDown && !castingMagicRH)
             {
+                if (chargingSound == null || !chargingSound.isPlaying && HasEnoughMana(spellToCastRH))
+                {
+                    chargingSound = AudioManager.instance.Play("SpellCharge");
+                }
                 isChargingRH = true;
                 currentChargeTimerRH += Time.deltaTime;
                 HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
@@ -51,11 +57,21 @@ public class MagicSystem : MonoBehaviour
 
             if (isSpellReleasing && isChargingRH)
             {
+                if(chargingSound != null)
+                {
+                    chargingSound.Stop();
+                }
                 castingMagicRH = true;
                 isChargingRH = false;
 
                 if (currentChargeTimerRH >= spellToCastRH.SpellToCast.ChargeTime)
-                    spellToCastRH.CastSpell(castPoint);
+                {
+                    if (HasEnoughMana(spellToCastRH))
+                    {
+                        spellToCastRH.CastSpell(castPoint);
+                        AudioManager.instance.Play("SpellCast");
+                    }
+                }
 
                 currentCastTimerRH = 0;
                 currentChargeTimerRH = 0;
@@ -81,6 +97,10 @@ public class MagicSystem : MonoBehaviour
 
             if (isSpellCastHeldDown && !castingMagicLH)
             {
+                if(chargingSound == null || !chargingSound.isPlaying && HasEnoughMana(spellToCastLH))
+                {
+                    chargingSound = AudioManager.instance.Play("SpellCharge");
+                }
                 isChargingLH = true;
                 currentChargeTimerLH += Time.deltaTime;
                 HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
@@ -92,7 +112,14 @@ public class MagicSystem : MonoBehaviour
                 isChargingLH = false;
 
                 if (currentChargeTimerLH >= spellToCastLH.SpellToCast.ChargeTime)
-                    spellToCastLH.CastSpell(castPoint);
+                {
+                    if (HasEnoughMana(spellToCastLH))
+                    {
+                        spellToCastLH.CastSpell(castPoint);
+                        AudioManager.instance.Play("SpellCast");
+                    }
+
+                }
 
                 currentCastTimerLH = 0;
                 currentChargeTimerLH = 0;
@@ -122,6 +149,15 @@ public class MagicSystem : MonoBehaviour
         //}
 
 
+    }
+
+    public bool HasEnoughMana(Spell spell)
+    {
+        if(Player.Instance.mana.currentMana >= spell.SpellToCast.ManaCost)
+        {
+            return true;
+        }
+        return false;
     }
 
 }

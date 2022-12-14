@@ -40,13 +40,13 @@ public class AudioManager : MonoBehaviour
     public float musicVolume;
     public Sound[] sounds;
 
-    public void Play(string name)
+    public AudioSource Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.clipName == name);
         if (s == null)
         {
             Debug.LogWarning("Sound " + name + " not found.");
-            return;
+            return null;
         }
         s.source.volume = s.volume;
         if (s.type == 0)
@@ -59,6 +59,7 @@ public class AudioManager : MonoBehaviour
         }
         s.source.volume = s.source.volume * masterVolume;
         s.source.Play();
+        return s.source;
 
     }
     public void PlayAtPositition(string name, Transform t, bool isPlayer)

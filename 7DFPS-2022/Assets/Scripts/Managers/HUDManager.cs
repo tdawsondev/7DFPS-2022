@@ -18,7 +18,7 @@ public class HUDManager : MonoBehaviour
     }
 
     public Slider ManaSlider;
-    public TextMeshProUGUI healthText; // temporary
+    public Slider HealthSlider;
     public TextMeshProUGUI chargeRHText; // temporary
     public TextMeshProUGUI chargeLHText; //temporary
 
@@ -42,7 +42,8 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateHealth()
     {
-        healthText.text = "HP: " +Player.Instance.health.currentHP;
+        HealthSlider.maxValue = Player.Instance.health.maxHP;
+        HealthSlider.value = Player.Instance.health.currentHP;
     }
 
     public void UpdateChargeRH(float currentCharge)

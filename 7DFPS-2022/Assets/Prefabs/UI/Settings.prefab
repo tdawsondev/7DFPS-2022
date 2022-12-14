@@ -1325,16 +1325,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7535274315888510968}
     - target: {fileID: 7988629291690153142, guid: 3a7255ee2a0d71140aed11424499f7fc,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SFXVolume
+      value: OnSliderChange
       objectReference: {fileID: 0}
     - target: {fileID: 7988629291690153142, guid: 3a7255ee2a0d71140aed11424499f7fc,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SettingsManager, Assembly-CSharp
+      value: SliderTextInput, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8322295661182993083, guid: 3a7255ee2a0d71140aed11424499f7fc,
         type: 3}
