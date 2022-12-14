@@ -10,9 +10,18 @@ public class Mana : MonoBehaviour
     public delegate void LostMana(float amount);
     public event LostMana ManaLowered;
 
+    public AltarManager altarManager;
+
     public void LoseMana(float amount)
     {
         currentMana -= amount;
+        if (currentMana > maxMana)
+            currentMana = maxMana;
+        if (currentMana <= 0)
+        {
+            currentMana = 0;
+            altarManager.ActivateNewAltar();
+        }
         ManaLowered(amount);
     }
 
