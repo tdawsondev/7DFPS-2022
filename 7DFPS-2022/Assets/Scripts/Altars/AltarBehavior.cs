@@ -22,6 +22,9 @@ public class AltarBehavior : MonoBehaviour
             if (other.tag == "Player")
             {
                 Player.Instance.mana.Recharge();
+                AudioManager.instance.StopSound("Recharge");
+                //play sting
+                AudioManager.instance.Play("MainTheme");
                 isActive = false;
                 particles.Stop();
             }

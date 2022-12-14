@@ -127,6 +127,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopSound(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.clipName == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + " not found.");
+            return;
+        }
+        s.source.Stop();
+    }
+
     private void Start()
     {
         Play("MainTheme");
