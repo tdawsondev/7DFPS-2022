@@ -37,7 +37,7 @@ public class AIMelee : MonoBehaviour
         {
             if(collider.tag == "Player")
             {
-                Player.Instance.health.Damage(damage);
+                Player.Instance.health.Damage(damage, transform);
             }
         }
         currentNumberofSwings++;

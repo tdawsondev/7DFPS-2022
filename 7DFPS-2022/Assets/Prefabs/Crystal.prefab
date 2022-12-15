@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 7941631087505450503}
   - component: {fileID: 7941631087505450502}
   - component: {fileID: 7941631087505450497}
-  - component: {fileID: 7941631087505450496}
+  - component: {fileID: 515972989258617090}
   - component: {fileID: 1257336102}
   m_Layer: 0
   m_Name: Crystal
@@ -366,7 +366,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7941631087505450553}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.3
   m_Speed: 7
   m_Acceleration: 100
@@ -437,7 +437,7 @@ MonoBehaviour:
   target: {fileID: 0}
   RotationSpeed: 5
   allowUpdate: 0
---- !u!114 &7941631087505450496
+--- !u!114 &515972989258617090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,10 +446,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7941631087505450553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a70da6114c3b14c92ce449938e40d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 796e3817c4efae84eaeb47579caea026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 7941631087505450501}
+  agent: {fileID: 7941631087505450555}
+  minFlyHeight: 2
+  maxFlyHeight: 5
 --- !u!114 &1257336102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,10 +465,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f479a2a970b2730488c957bd7a977e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRandomDistance: 10
+  maxRandomDistance: 15
   hasPoint: 0
   targetPoint: {x: 0, y: 0, z: 0}
-  errorDistance: 4
+  errorDistance: 6
 --- !u!1 &7941631087964839335
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public static MenuController instance;
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.Log("More than one MenuController");
+        }
+        instance = this;
+    }
+
+
     public GameObject pauseMenu;
     public bool paused = false;
     public Animator pauseAnimator;
     public Animator fadeAnimator;
     public CanvasGroup settingsCanvas;
+    public GameObject gameOverMenu;
+    public bool cantPause = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +31,9 @@ public class MenuController : MonoBehaviour
         StartCoroutine(IEOnLoadIn());
         if (pauseMenu)
             pauseMenu.SetActive(false);
+        if(gameOverMenu)
+            gameOverMenu.SetActive(false);
+
     }
 
     void Update()
@@ -30,7 +46,7 @@ public class MenuController : MonoBehaviour
 
     public void TogglePause()
     {
-        if (pauseMenu == null) return;
+        if (pauseMenu == null ||cantPause) return;
         if (!paused)
         {
             paused = true;
@@ -93,4 +109,12 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(buildIndex);
 
     }
+    public void OpenGameOverMenu()
+    {
+        Time.timeScale = 0f;
+        cantPause = true;
+        gameOverMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 }

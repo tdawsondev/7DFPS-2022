@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.tag == tagToHit)
         {
-            other.GetComponent<Health>().Damage(Damage);
+            other.GetComponent<Health>().Damage(Damage, transform);
         }
 
         if(other.tag != "Spell")

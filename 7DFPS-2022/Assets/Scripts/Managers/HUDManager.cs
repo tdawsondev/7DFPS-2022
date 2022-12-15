@@ -22,6 +22,8 @@ public class HUDManager : MonoBehaviour
     public TextMeshProUGUI chargeRHText; // temporary
     public TextMeshProUGUI chargeLHText; //temporary
 
+    public CanvasGroup Top, Bottom, Left, Right;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,5 +56,20 @@ public class HUDManager : MonoBehaviour
     public void UpdateChargeLH(float currentCharge)
     {
         chargeLHText.text = "Charge Left: " + currentCharge.ToString("n2");
+    }
+
+    public void StartDecay(CanvasGroup group)
+    {
+        group.alpha = 1f;
+        StartCoroutine(Decay(group));
+    }
+    IEnumerator Decay(CanvasGroup group)
+    {
+        while(group.alpha > 0f)
+        {
+            group.alpha -= 1f *Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        yield return null;
     }
 }

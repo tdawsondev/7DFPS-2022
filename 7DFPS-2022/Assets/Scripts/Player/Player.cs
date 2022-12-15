@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public MouseLook mouseLook;
     public Health health;
     public Mana mana;
+    public Light manaLight;
+    public bool IgnoreDeath = false;
 
     private void OnDestroy()
     {
@@ -55,13 +57,37 @@ public class Player : MonoBehaviour
 
     }
 
-    public void TookDamage(float amount)
+    public void TookDamage(float amount, Transform tran)
     {
         HUDManager.instance.UpdateHealth();
+        //Hit Direction
+        Vector3 direction = transform.position - tran.position;
+        float frontDot = Vector3.Dot(direction, transform.forward);
+        float rightDot = Vector3.Dot(direction, transform.right);
+
+        if(Mathf.Abs(frontDot) > Mathf.Abs(rightDot))
+        {
+            if(frontDot > 0) HUDManager.instance.StartDecay(HUDManager.instance.Bottom);
+            else HUDManager.instance.StartDecay(HUDManager.instance.Top); 
+        }
+        else
+        {
+            if(rightDot > 0)HUDManager.instance.StartDecay(HUDManager.instance.Left);
+            else HUDManager.instance.StartDecay(HUDManager.instance.Right);
+        }
+
+        if (health.Dead && !IgnoreDeath)
+        {
+            MenuController.instance.OpenGameOverMenu();
+        }
     }
 
     public void LostMana(float amount)
     {
         HUDManager.instance.UpdateManaSlider();
+        if (mana.OutOfMana)
+        {
+            manaLight.intensity = 1f;
+        }
     }
 }

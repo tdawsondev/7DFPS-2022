@@ -45,7 +45,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3
+  m_Intensity: 2
   m_Range: 50
   m_SpotAngle: 179
   m_InnerSpotAngle: 150.4557
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475241923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.639}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -253,6 +253,7 @@ MonoBehaviour:
   mouseLook: {fileID: 7449592027794341854}
   health: {fileID: 1880738288}
   mana: {fileID: 1972434642}
+  manaLight: {fileID: 1274840178}
 --- !u!114 &5728261295458412576
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -84,7 +84,8 @@ public class AIShooting : MonoBehaviour
     {
         Transform target = Player.Instance.transform;
         Vector3 direction = target.position + Random.insideUnitSphere * Inacuracy - shootPoint.position;
-        Projectile projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation).GetComponent<Projectile>();
+        Quaternion lookDirection = Quaternion.LookRotation(direction.normalized);
+        Projectile projectile = Instantiate(projectilePrefab, shootPoint.position, lookDirection).GetComponent<Projectile>();
         projectile.Launch(direction.normalized, "Player");
     }
 

@@ -7,17 +7,17 @@ public class Health : MonoBehaviour
     public float maxHP, currentHP;
 
     // event that alows you to check whenever damage is taken
-    public delegate void TookDamage(float amount);
+    public delegate void TookDamage(float amount, Transform tran = null);
     public event TookDamage Damaged;
 
-    public void Damage(float amount)
+    public void Damage(float amount, Transform tran = null)
     {
         currentHP -= amount;
         if (currentHP > maxHP)
             currentHP = maxHP;
         if (currentHP < 0)
             currentHP = 0;
-        Damaged(amount);
+        Damaged(amount, tran);
     }
 
     public void Kill()

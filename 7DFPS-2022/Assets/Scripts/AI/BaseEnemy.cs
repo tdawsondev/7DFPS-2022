@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseEnemy : MonoBehaviour
 {
     public Health health;
+    public NavMeshAgent agent;
     private void Awake()
     {
         health.Damaged += TookDamage;
@@ -14,12 +16,21 @@ public class BaseEnemy : MonoBehaviour
         health.Damaged -= TookDamage;
     }
 
-    public void TookDamage(float amount)
+    public virtual void TookDamage(float amount, Transform tran)
     {
         if (health.Dead)
         {
+            SpawnManager.instance.spawnCount--;
             Destroy(gameObject);
         }
+
+    }
+
+    /// <summary>
+    /// Used to Set variables when an enemy is spawned in
+    /// </summary>
+    public virtual void OnSpawn()
+    {
 
     }
 

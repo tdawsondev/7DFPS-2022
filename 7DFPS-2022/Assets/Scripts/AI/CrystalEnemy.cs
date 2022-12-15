@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrystalEnemy : MonoBehaviour
+public class CrystalEnemy : BaseEnemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float minFlyHeight;
+    public float maxFlyHeight;
 
-    // Update is called once per frame
-    void Update()
+    public override void OnSpawn()
     {
+        base.OnSpawn();
+        agent.height = Random.Range(minFlyHeight, maxFlyHeight);
+        agent.baseOffset = agent.height - 0.5f;
         
     }
 }
