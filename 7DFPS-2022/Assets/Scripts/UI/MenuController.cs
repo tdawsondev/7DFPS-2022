@@ -85,6 +85,11 @@ public class MenuController : MonoBehaviour
         fadeAnimator.gameObject.SetActive(true);
         fadeAnimator.SetTrigger("FadeIn");
         yield return new WaitForSecondsRealtime(0.3f);
+        if (AudioManager.instance.GetClip("Recharge").isPlaying)
+        {
+            AudioManager.instance.StopSound("Recharge");
+            AudioManager.instance.Play("MainTheme");
+        }
         SceneManager.LoadScene(buildIndex);
 
     }

@@ -17,6 +17,6 @@ MonoBehaviour:
   ChargeTime: 0.5
   Damage: 2
   LifeTime: 5
-  Speed: 30
+  Speed: 65
   SpellRadius: 0.5
   Healing: 3

@@ -138,6 +138,17 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    public AudioSource GetClip(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.clipName == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound " + name + " not found.");
+            return null;
+        }
+        return s.source;
+    }
+
     private void Start()
     {
         Play("MainTheme");

@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (groundedPlayer && playerVelocity.y < 0)
         {
-            playerVelocity.y = -1f;
+            playerVelocity.y = -.5f;
         }
         if (currentJumps == 2 && !groundedPlayer)
         {

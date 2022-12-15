@@ -22,7 +22,7 @@ public class Mana : MonoBehaviour
             currentMana = 0;
             altarManager.ActivateNewAltar();
             AudioManager.instance.StopSound("MainTheme");
-            //play sting
+            AudioManager.instance.Play("Stinger");
             AudioManager.instance.Play("Recharge");
         }
         ManaLowered(amount);

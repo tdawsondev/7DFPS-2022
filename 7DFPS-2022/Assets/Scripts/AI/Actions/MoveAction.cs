@@ -10,10 +10,17 @@ public class MoveAction : FSMAction
     {
         NavMeshAgent navMeshAgent = stateMachine.GetComponent<NavMeshAgent>();
         MoveToPoint moveTo = stateMachine.GetComponent<MoveToPoint>();
+        LookAtTarget look = stateMachine.GetComponent<LookAtTarget>();
+        if (look)
+        {
+            look.allowUpdate = false;
+        }
         if (!moveTo.hasPoint)
         {
-            moveTo.SetRandomPointOnMesh();
+            moveTo.SetRandomPointNearPlayer();
         }
+        navMeshAgent.updateRotation = true;
+        navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(moveTo.targetPoint);
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71696c3c7fe2bb647a8550906b42794a, type: 3}
+  m_Name: ChaseToShoot
+  m_EditorClassIdentifier: 
+  Action:
+  - {fileID: 11400000, guid: 2b923ba07e95b0843817eb5ff6f02b69, type: 2}
+  Transitions:
+  - {fileID: 11400000, guid: be97935a0b5949a4aaed27a29a97a5f5, type: 2}

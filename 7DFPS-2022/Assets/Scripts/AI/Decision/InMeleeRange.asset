@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da88db33bbea7d649aee1e09f82bd3d6, type: 3}
   m_Name: InMeleeRange
   m_EditorClassIdentifier: 
-  maxRange: 2
+  maxRange: 1.5

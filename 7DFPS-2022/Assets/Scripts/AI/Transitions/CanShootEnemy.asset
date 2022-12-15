@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39eea4410a1b9c54984d661b0f465587, type: 3}
-  m_Name: ArrivedAtPosition
+  m_Name: CanShootEnemy
   m_EditorClassIdentifier: 
-  Decision: {fileID: 11400000, guid: 4ef828340e691294491ce0aac1cdf5c7, type: 2}
-  TrueState: {fileID: 11400000, guid: 27d47960691d04f44b90cc10d514aa7a, type: 2}
-  FalseState: {fileID: 11400000, guid: 2b57ae119de98fc4ea28e988c74a6b4f, type: 2}
+  Decision: {fileID: 11400000, guid: f548877f283be284da9aa4f754619a4e, type: 2}
+  TrueState: {fileID: 11400000, guid: 76aca7806790ee546a0c38248505e625, type: 2}
+  FalseState: {fileID: 11400000, guid: f9ff63c148261e342975c5a30cc268da, type: 2}

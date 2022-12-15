@@ -9,6 +9,13 @@ public class ChaseAction : FSMAction
     public override void Execute(BaseStateMachine stateMachine)
     {
         NavMeshAgent navMeshAgent = stateMachine.GetComponent<NavMeshAgent>();
+        LookAtTarget lookAtTarget = stateMachine.GetComponent<LookAtTarget>();
+        if (lookAtTarget)
+        {
+            lookAtTarget.allowUpdate = false;
+        }
+        navMeshAgent.updateRotation = true;
+        navMeshAgent.isStopped = false;
 
         navMeshAgent.SetDestination(Player.Instance.transform.position);
     }

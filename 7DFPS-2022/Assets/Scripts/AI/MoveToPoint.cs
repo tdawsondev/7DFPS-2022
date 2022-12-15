@@ -9,6 +9,7 @@ public class MoveToPoint : MonoBehaviour
     [HideInInspector]
     public bool hasPoint = false;
     
+    [HideInInspector]
     public Vector3 targetPoint;
 
     public float errorDistance = 2.5f;
@@ -18,11 +19,11 @@ public class MoveToPoint : MonoBehaviour
         
     }
 
-    public void SetRandomPointOnMesh()
+    public void SetRandomPointNearPlayer()
     {
         hasPoint = true;
         Vector3 randomDirection = Random.insideUnitSphere * maxRandomDistance;
-        randomDirection+= transform.position;
+        randomDirection+= Player.Instance.transform.position;
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, maxRandomDistance, 1);
         targetPoint = hit.position;

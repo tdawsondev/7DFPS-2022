@@ -339,6 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMana: 100
   currentMana: 100
+  altarManager: {fileID: 0}
 --- !u!1 &2730312192705861491
 GameObject:
   m_ObjectHideFlags: 0
