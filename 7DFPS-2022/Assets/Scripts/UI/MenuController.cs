@@ -43,6 +43,19 @@ public class MenuController : MonoBehaviour
             TogglePause();
         }
     }
+    public void Freeze()
+    {
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Player.Instance.LockPlayer();
+    }
+    public void UnFreeze()
+    {
+        Player.Instance.UnlockPlayer();
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1f;
+    }
+
 
     public void TogglePause()
     {
@@ -50,10 +63,8 @@ public class MenuController : MonoBehaviour
         if (!paused)
         {
             paused = true;
-            Time.timeScale = 0f;
             pauseMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Player.Instance.LockPlayer();
+            Freeze();
             pauseAnimator.SetTrigger("FadeIn");
         }
         else
@@ -70,9 +81,7 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.15f);
         paused = false;
         pauseMenu.SetActive(false);
-        Player.Instance.UnlockPlayer();
-        Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1f;
+        UnFreeze();
 
     }
     public void CloseApplication()
@@ -111,10 +120,14 @@ public class MenuController : MonoBehaviour
     }
     public void OpenGameOverMenu()
     {
-        Time.timeScale = 0f;
+        Freeze();
         cantPause = true;
         gameOverMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void PlaySound(string sound)
+    {
+        AudioManager.instance.Play(sound);
     }
 
 }

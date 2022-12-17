@@ -118,3 +118,66 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - clipName: UIHover
+    type: 0
+    clip: {fileID: 8300000, guid: c89c4afbb358d94429acf2b4d3f60806, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: UIPositive
+    type: 0
+    clip: {fileID: 8300000, guid: 89997de47ad4d9c4fa00d163307793dc, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: UINegative
+    type: 0
+    clip: {fileID: 8300000, guid: d305c51855ece4c4f82952ecd2e4f85e, type: 3}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: NewFootStep1
+    type: 0
+    clip: {fileID: 8300000, guid: 60b98629fd3167b42a49740a505c6488, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: NewFootStep2
+    type: 0
+    clip: {fileID: 8300000, guid: 64c1738ad78a8c1488fa5f3f4e9bbc9f, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: NewFootStep3
+    type: 0
+    clip: {fileID: 8300000, guid: faa39961097945f4aa2eb62347b88ee2, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: NewFootStep4
+    type: 0
+    clip: {fileID: 8300000, guid: aa1cac215c3cc9d409b18c6daa7b0e58, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: GameOver
+    type: 0
+    clip: {fileID: 8300000, guid: 389ac89c8982db84b9e5e71a1ab80578, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: PlayerHit
+    type: 0
+    clip: {fileID: 8300000, guid: 02491e0205eeb6a488c8e416f0bd1413, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

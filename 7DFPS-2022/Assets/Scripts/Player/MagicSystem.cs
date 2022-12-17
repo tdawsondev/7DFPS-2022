@@ -23,11 +23,14 @@ public class MagicSystem : MonoBehaviour
     private bool isChargingRH = false;
     private bool isChargingLH = false;
 
+    public Animator rightHandAnim;
+
     private AudioSource chargingSound;
 
     private void Start()
     {
         HUDManager.instance.UpdateManaSlider();
+        rightHandAnim.SetFloat("ChargeSpeed", 1.1f+spellToCastRH.SpellToCast.ChargeTime / 0.792f);
     }
 
     private void Update()
@@ -50,6 +53,7 @@ public class MagicSystem : MonoBehaviour
                 {
                     chargingSound = AudioManager.instance.Play("SpellCharge");
                 }
+                rightHandAnim.SetBool("Charging", true);
                 isChargingRH = true;
                 currentChargeTimerRH += Time.deltaTime;
                 HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
@@ -68,10 +72,13 @@ public class MagicSystem : MonoBehaviour
                 {
                     if (HasEnoughMana(spellToCastRH))
                     {
+                        rightHandAnim.SetTrigger("Casting");
                         spellToCastRH.CastSpell(castPoint);
                         AudioManager.instance.Play("SpellCast");
                     }
                 }
+                rightHandAnim.SetBool("Charging", false);
+                
 
                 currentCastTimerRH = 0;
                 currentChargeTimerRH = 0;

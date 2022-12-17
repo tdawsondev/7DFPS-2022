@@ -61,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
     private int lastSound = 0;
     private bool audioPlaying;
 
+    [Header("Animators")]
+    [SerializeField] Animator rhAnim;
+    [SerializeField] Animator lhAnim;
+    int lastPlayed = 0; // 0 = rh; 1 = lh;
+
 
     private void Start()
     {
@@ -215,11 +220,26 @@ public class PlayerMovement : MonoBehaviour
     public void PlayFootStepNoise()
     {
         lastSound = lastSound + 1;
-        if(lastSound> 5)
+        if(lastSound> 4)
         {
             lastSound = 1;
         }
-        AudioManager.instance.Play("Footsteps" + lastSound);
+        AudioManager.instance.Play("NewFootStep" + lastSound);
+    }
+
+    public void PlayHandAnim()
+    {
+        if(lastPlayed == 0)
+        {
+            rhAnim.SetTrigger("Step");
+            lastPlayed = 1;
+        }
+        else
+        {
+            lhAnim.SetTrigger("Step");
+            lastPlayed = 0;
+
+        }
     }
 
     public IEnumerator AuidoLoop()
@@ -249,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
             if (currentLoopTime > 0)
             {
                 PlayFootStepNoise();
+                PlayHandAnim();
                 yield return new WaitForSeconds(1 / currentLoopTime);
             }
             else yield return null;

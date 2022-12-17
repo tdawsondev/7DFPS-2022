@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Mana mana;
     public Light manaLight;
     public bool IgnoreDeath = false;
+    public Animator hitAnimator;
 
     private void OnDestroy()
     {
@@ -59,26 +60,51 @@ public class Player : MonoBehaviour
 
     public void TookDamage(float amount, Transform tran)
     {
+        
         HUDManager.instance.UpdateHealth();
-        //Hit Direction
-        Vector3 direction = transform.position - tran.position;
-        float frontDot = Vector3.Dot(direction, transform.forward);
-        float rightDot = Vector3.Dot(direction, transform.right);
 
-        if(Mathf.Abs(frontDot) > Mathf.Abs(rightDot))
+        if (amount > 0)
         {
-            if(frontDot > 0) HUDManager.instance.StartDecay(HUDManager.instance.Bottom);
-            else HUDManager.instance.StartDecay(HUDManager.instance.Top); 
-        }
-        else
-        {
-            if(rightDot > 0)HUDManager.instance.StartDecay(HUDManager.instance.Left);
-            else HUDManager.instance.StartDecay(HUDManager.instance.Right);
-        }
+            AudioManager.instance.Play("PlayerHit");
+            //Hit Direction
+            Vector3 direction = transform.position - tran.position;
+            float frontDot = Vector3.Dot(direction, transform.forward);
+            float rightDot = Vector3.Dot(direction, transform.right);
 
-        if (health.Dead && !IgnoreDeath)
-        {
-            MenuController.instance.OpenGameOverMenu();
+            if (Mathf.Abs(frontDot) > Mathf.Abs(rightDot))
+            {
+                if (frontDot > 0)
+                {
+                    HUDManager.instance.StartDecay(HUDManager.instance.Bottom);
+                    hitAnimator.Play("PlayerHitLeft");
+                }
+                else
+                {
+                    HUDManager.instance.StartDecay(HUDManager.instance.Top);
+                    hitAnimator.Play("PlayerHitRight");
+
+                }
+            }
+            else
+            {
+                if (rightDot > 0)
+                {
+                    HUDManager.instance.StartDecay(HUDManager.instance.Left);
+                    hitAnimator.Play("PlayerHitLeft");
+
+                }
+                else
+                {
+                    HUDManager.instance.StartDecay(HUDManager.instance.Right);
+                    hitAnimator.Play("PlayerHitRight");
+
+                }
+            }
+
+            if (health.Dead && !IgnoreDeath)
+            {
+                MenuController.instance.OpenGameOverMenu();
+            }
         }
     }
 
