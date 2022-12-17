@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3167042801327943190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3167042801327943176}
+  - component: {fileID: 3167042801327943177}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3167042801327943176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167042801327943190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3167042801327943177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3167042801327943190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42a29a83ae83244ba407c6fd31d134d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 0.5
+  sfxVolume: 0.5
+  musicVolume: 0.5
+  sounds:
+  - clipName: MainTheme
+    type: 1
+    clip: {fileID: 8300000, guid: a439faaf751966c479778c919cfa42df, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: Recharge
+    type: 1
+    clip: {fileID: 8300000, guid: 22802a6ee66bf3149908bec0d5478100, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - clipName: Footsteps1
+    type: 0
+    clip: {fileID: 8300000, guid: 9809c6166b617564598f0002390c17c5, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps2
+    type: 0
+    clip: {fileID: 8300000, guid: 3696c9e79a880974ca907220d40ff306, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps3
+    type: 0
+    clip: {fileID: 8300000, guid: daea1b6e2715153448d51d4145a55f7a, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps4
+    type: 0
+    clip: {fileID: 8300000, guid: 04a7c56fd398a184083014e19a01531d, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Footsteps5
+    type: 0
+    clip: {fileID: 8300000, guid: 19cfb462a76387e41b56734c8096f6fc, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: SpellCharge
+    type: 0
+    clip: {fileID: 8300000, guid: f258421b479af1944b6507fb5cbfafae, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: SpellCast
+    type: 0
+    clip: {fileID: 8300000, guid: 084fc2b35a262564b8b7ac4288a709c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: Stinger
+    type: 1
+    clip: {fileID: 8300000, guid: 024b7c9d83bdff5468c040e622c04c70, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
