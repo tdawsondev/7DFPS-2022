@@ -7,11 +7,15 @@ public class AltarBehavior : MonoBehaviour
 
     bool isActive = false;
     ParticleSystem particles;
+    [SerializeField] Light activeLight;
+    [SerializeField] Outline outline;
 
     private void Start()
     {
         particles = gameObject.GetComponentInChildren<ParticleSystem>();
         particles.Stop();
+        activeLight.gameObject.SetActive(false);
+        outline.enabled = false;
     }
 
 
@@ -28,6 +32,8 @@ public class AltarBehavior : MonoBehaviour
                 AudioManager.instance.Play("MainTheme");
                 isActive = false;
                 particles.Stop();
+                outline.enabled = false;
+                activeLight.gameObject.SetActive(false);
             }
         }
 
@@ -39,6 +45,8 @@ public class AltarBehavior : MonoBehaviour
     {
         isActive = true;
         particles.Play();
+        activeLight.gameObject.SetActive(true);
+        outline.enabled = true;
     }
 
 }
