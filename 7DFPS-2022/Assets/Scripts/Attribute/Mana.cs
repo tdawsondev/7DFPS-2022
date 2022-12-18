@@ -43,4 +43,10 @@ public class Mana : MonoBehaviour
         }
     }
 
+    public void IncreaseMaxMana(float amount)
+    {
+        maxMana += amount;
+        Recharge();
+    }
+
 }

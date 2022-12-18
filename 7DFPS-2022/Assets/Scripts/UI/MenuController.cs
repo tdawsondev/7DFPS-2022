@@ -23,6 +23,7 @@ public class MenuController : MonoBehaviour
     public CanvasGroup settingsCanvas;
     public GameObject gameOverMenu;
     public bool cantPause = false;
+    public GameObject levelUpMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -125,9 +126,42 @@ public class MenuController : MonoBehaviour
         gameOverMenu.SetActive(true);
     }
 
+    public void ToggleLevelUp()
+    {
+        if (levelUpMenu == null || cantPause) return;
+        if (!paused)
+        {
+            paused = true;
+            levelUpMenu.SetActive(true);
+            Freeze();
+        }
+        else
+        {
+            StartCoroutine(IEUnLevelPause());
+        }
+    }
+    private IEnumerator IEUnLevelPause()
+    {
+        //add animator effects
+        yield return new WaitForSecondsRealtime(0.15f);
+        paused = false;
+        levelUpMenu.SetActive(false);
+        UnFreeze();
+    }
+
     public void PlaySound(string sound)
     {
         AudioManager.instance.Play(sound);
+    }
+
+    public void IncreaseMaxHealth()
+    {
+        ScoreManager.instance.IncreaseMaxHealth();
+    }
+
+    public void IncreaseMaxMana()
+    {
+        ScoreManager.instance.IncreaseMaxMana();
     }
 
 }
