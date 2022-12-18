@@ -31,7 +31,14 @@ public class ProjectileSpell : Spell
     {
         if (other.tag == tagToHit)
         {
-            other.GetComponent<Health>().Damage(SpellToCast.Damage);
+            if (tagToHit == "Enemy")
+            {
+                other.gameObject.GetComponent<EnemyReference>().baseEnemy.health.Damage(SpellToCast.Damage);
+            }
+            else
+            {
+                other.GetComponent<Health>().Damage(SpellToCast.Damage);
+            }
         }
 
         if (other.tag != "Spell")

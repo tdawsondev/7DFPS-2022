@@ -92,6 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   altars:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &2382842419871218632
 GameObject:
@@ -204,6 +207,17 @@ PrefabInstance:
       propertyPath: minSpawnDistance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
+        type: 3}
+      propertyPath: targetSpawnCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
+        type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3263047640576302073, guid: d6f1a06cec7285c419fc9ce1382d42c2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae, type: 3}
 --- !u!4 &2382842419972492487 stripped

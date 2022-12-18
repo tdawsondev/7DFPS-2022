@@ -121,6 +121,7 @@ public class MenuController : MonoBehaviour
     public void OpenGameOverMenu()
     {
         Freeze();
+        AudioManager.instance.Play("GameOver");
         cantPause = true;
         gameOverMenu.SetActive(true);
     }

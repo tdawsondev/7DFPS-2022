@@ -24,6 +24,9 @@ public class MagicSystem : MonoBehaviour
     private bool isChargingLH = false;
 
     public Animator rightHandAnim;
+    public Animator rightHandCharge;
+    public Animator leftHandAnim;
+    public Animator lefttHandCharge;
 
     private AudioSource chargingSound;
 
@@ -54,6 +57,7 @@ public class MagicSystem : MonoBehaviour
                     chargingSound = AudioManager.instance.Play("SpellCharge");
                 }
                 rightHandAnim.SetBool("Charging", true);
+                rightHandCharge.SetBool("Charging", true);
                 isChargingRH = true;
                 currentChargeTimerRH += Time.deltaTime;
                 HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
@@ -73,12 +77,16 @@ public class MagicSystem : MonoBehaviour
                     if (HasEnoughMana(spellToCastRH))
                     {
                         rightHandAnim.SetTrigger("Casting");
+                        rightHandCharge.SetBool("Charging", false);
+
                         spellToCastRH.CastSpell(castPoint);
                         AudioManager.instance.Play("SpellCast");
                     }
                 }
                 rightHandAnim.SetBool("Charging", false);
-                
+                rightHandCharge.SetBool("Charging", false);
+
+
 
                 currentCastTimerRH = 0;
                 currentChargeTimerRH = 0;
@@ -108,6 +116,8 @@ public class MagicSystem : MonoBehaviour
                 {
                     chargingSound = AudioManager.instance.Play("SpellCharge");
                 }
+                leftHandAnim.SetBool("Charging", true);
+                lefttHandCharge.SetBool("Charging", true);
                 isChargingLH = true;
                 currentChargeTimerLH += Time.deltaTime;
                 HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
@@ -115,6 +125,10 @@ public class MagicSystem : MonoBehaviour
 
             if (isSpellReleasing && isChargingLH)
             {
+                if (chargingSound != null)
+                {
+                    chargingSound.Stop();
+                }
                 castingMagicLH = true;
                 isChargingLH = false;
 
@@ -122,11 +136,15 @@ public class MagicSystem : MonoBehaviour
                 {
                     if (HasEnoughMana(spellToCastLH))
                     {
+                        leftHandAnim.SetTrigger("Casting");
+                        lefttHandCharge.SetBool("Charging", false);
                         spellToCastLH.CastSpell(castPoint);
                         AudioManager.instance.Play("SpellCast");
                     }
 
                 }
+                leftHandAnim.SetBool("Charging", false);
+                lefttHandCharge.SetBool("Charging", false);
 
                 currentCastTimerLH = 0;
                 currentChargeTimerLH = 0;
