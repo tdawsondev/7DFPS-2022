@@ -19,10 +19,10 @@ public class HUDManager : MonoBehaviour
 
     public Slider ManaSlider;
     public Slider HealthSlider;
-    public TextMeshProUGUI chargeRHText; // temporary
-    public TextMeshProUGUI chargeLHText; //temporary
+    public Slider RHSlider; 
+    public Slider LHSlider; 
     public TextMeshProUGUI xpText; //temporary
-    public TextMeshProUGUI scoreText; //temporary
+    public Slider xpSlider;
 
     public CanvasGroup Top, Bottom, Left, Right;
 
@@ -50,20 +50,23 @@ public class HUDManager : MonoBehaviour
         HealthSlider.value = Player.Instance.health.currentHP;
     }
 
-    public void UpdateChargeRH(float currentCharge)
+    public void UpdateChargeRH(float currentCharge, float maxCharge)
     {
-        chargeRHText.text = "Charge Right: " + currentCharge.ToString("n2");
+        RHSlider.maxValue = maxCharge;
+        RHSlider.value = currentCharge;
     }
 
-    public void UpdateChargeLH(float currentCharge)
+    public void UpdateChargeLH(float currentCharge, float maxCharge)
     {
-        chargeLHText.text = "Charge Left: " + currentCharge.ToString("n2");
+        LHSlider.maxValue = maxCharge;
+        LHSlider.value = currentCharge;
     }
 
-    public void UpdateXP(float currentXP, float currentScore)
+    public void UpdateXP(float currentXP, float xpToNextLevel)
     {
-        xpText.text = "XP: " + currentXP.ToString();
-        scoreText.text = "Score: " + currentScore.ToString();
+        xpText.text = currentXP + "/" + xpToNextLevel ;
+        xpSlider.maxValue = xpToNextLevel;
+        xpSlider.value = currentXP;
     }
 
     public void StartDecay(CanvasGroup group)

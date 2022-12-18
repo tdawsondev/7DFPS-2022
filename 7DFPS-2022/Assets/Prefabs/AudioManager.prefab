@@ -57,7 +57,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - clipName: Recharge
     type: 1
-    clip: {fileID: 8300000, guid: 22802a6ee66bf3149908bec0d5478100, type: 3}
+    clip: {fileID: 8300000, guid: db7edab03c81b8048b5d3734a887e833, type: 3}
     volume: 1
     pitch: 1
     loop: 1

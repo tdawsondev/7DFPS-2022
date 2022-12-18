@@ -86,6 +86,7 @@ public class AIShooting : MonoBehaviour
         Vector3 direction = target.position + Random.insideUnitSphere * Inacuracy - shootPoint.position;
         Quaternion lookDirection = Quaternion.LookRotation(direction.normalized);
         Projectile projectile = Instantiate(projectilePrefab, shootPoint.position, lookDirection).GetComponent<Projectile>();
+        AudioManager.instance.PlayAtPositition("CrystalShoot", transform);
         projectile.Launch(direction.normalized, "Player");
     }
 

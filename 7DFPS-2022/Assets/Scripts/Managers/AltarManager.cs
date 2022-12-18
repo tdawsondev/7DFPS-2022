@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class AltarManager : MonoBehaviour
 {
+    public static AltarManager instance;
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("Yo you got more than one altar manager");
+        }
+        instance = this;
+    }
 
     public GameObject[] altars;
-    public Player player;
 
     public void ActivateNewAltar()
     {
@@ -18,9 +26,9 @@ public class AltarManager : MonoBehaviour
         float maxDistance = 0;
         for (int i = 0; i < altars.Length; i++)
         {
-            if (Vector3.Distance(player.transform.position, altars[i].transform.position) > maxDistance)
+            if (Vector3.Distance(Player.Instance.transform.position, altars[i].transform.position) > maxDistance)
             {
-                maxDistance = Vector3.Distance(player.transform.position, altars[i].transform.position);
+                maxDistance = Vector3.Distance(Player.Instance.transform.position, altars[i].transform.position);
                 altarNum = i;
             }
         }

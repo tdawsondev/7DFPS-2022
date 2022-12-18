@@ -10,8 +10,6 @@ public class Mana : MonoBehaviour
     public delegate void LostMana(float amount);
     public event LostMana ManaLowered;
 
-    public AltarManager altarManager;
-
     public void LoseMana(float amount)
     {
         currentMana -= amount;
@@ -20,7 +18,7 @@ public class Mana : MonoBehaviour
         if (currentMana <= 0)
         {
             currentMana = 0;
-            altarManager.ActivateNewAltar();
+            AltarManager.instance.ActivateNewAltar();
             AudioManager.instance.StopSound("MainTheme");
             AudioManager.instance.Play("Stinger");
             AudioManager.instance.Play("Recharge");
@@ -31,6 +29,10 @@ public class Mana : MonoBehaviour
     public void Recharge()
     {
         LoseMana(-(maxMana - currentMana));
+    }
+    public void GainMana(float amount)
+    {
+        LoseMana(-amount);
     }
 
     public bool OutOfMana
@@ -46,7 +48,7 @@ public class Mana : MonoBehaviour
     public void IncreaseMaxMana(float amount)
     {
         maxMana += amount;
-        Recharge();
+        GainMana(amount);
     }
 
 }

@@ -43,6 +43,6 @@ public class Health : MonoBehaviour
     public void IncreaseMaxHealth(int amount)
     {
         maxHP += amount;
-        Heal(maxHP);
+        Heal(amount);
     }
 }

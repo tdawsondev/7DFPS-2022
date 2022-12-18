@@ -81,6 +81,8 @@ public class AudioManager : MonoBehaviour
         }
         s.source.volume = s.source.volume * masterVolume;
 
+        s.source.volume = s.source.volume * 20f;
+
         AudioSource.PlayClipAtPoint(s.source.clip, t.position, s.source.volume);
 
     }

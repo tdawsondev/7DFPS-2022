@@ -6,7 +6,6 @@ public class ScoreManager : MonoBehaviour
 {
 
     public static ScoreManager instance;
-    public Player player;
 
     private void Awake()
     {
@@ -19,6 +18,9 @@ public class ScoreManager : MonoBehaviour
 
     private float xp;
     public float xpToNextLevel = 5;
+    public float manaIncrease;
+    public int healthIncrease;
+    public int level = 0;
 
     //total xp gained
     public float score;
@@ -27,6 +29,8 @@ public class ScoreManager : MonoBehaviour
     {
         xp = 0;
         score = 0;
+        level = 0;
+        HUDManager.instance.UpdateXP(xp, xpToNextLevel);
     }
 
     //called on BaseEnemy.TookDamage, xp changes made there
@@ -39,22 +43,25 @@ public class ScoreManager : MonoBehaviour
             xp -= xpToNextLevel;
             LevelUp();
         }
-        HUDManager.instance.UpdateXP(xp, score);
+        HUDManager.instance.UpdateXP(xp, xpToNextLevel);
     }
 
     private void LevelUp()
     {
+        level++;
         MenuController.instance.ToggleLevelUp();
     }
 
     public void IncreaseMaxHealth()
     {
-        player.health.IncreaseMaxHealth(10);
+        Player.Instance.health.IncreaseMaxHealth(healthIncrease);
+        HUDManager.instance.UpdateHealth();
     }
 
     public void IncreaseMaxMana()
     {
-        player.mana.IncreaseMaxMana(20);
+        Player.Instance.mana.IncreaseMaxMana(manaIncrease);
+        HUDManager.instance.UpdateManaSlider();
     }
 
 }

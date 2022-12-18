@@ -95,7 +95,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &2382842419871218632
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,9 +126,58 @@ Transform:
   - {fileID: 2382842419067445198}
   - {fileID: 2382842419495361224}
   - {fileID: 2382842419972492487}
+  - {fileID: 2589852484005976672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8663047285067463264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2589852484005976672}
+  - component: {fileID: 7152259686395691256}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2589852484005976672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663047285067463264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2382842419871218631}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7152259686395691256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663047285067463264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78475344e028304479185d1a7421d92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpToNextLevel: 1500
+  manaIncrease: 10
+  healthIncrease: 10
+  score: 0
 --- !u!1001 &1884182350539623405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
         type: 3}
       propertyPath: targetSpawnCount
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
         type: 3}

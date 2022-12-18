@@ -7,6 +7,7 @@ public class BaseEnemy : MonoBehaviour
 {
     public Health health;
     public NavMeshAgent agent;
+    public int XpValue;
     private void Awake()
     {
         health.Damaged += TookDamage;
@@ -21,8 +22,8 @@ public class BaseEnemy : MonoBehaviour
         if (health.Dead)
         {
             SpawnManager.instance.spawnCount--;
-            Destroy(gameObject);
-            ScoreManager.instance.GainXP(1);
+            ScoreManager.instance.GainXP(XpValue);
+            Destroy(gameObject);  
         }
 
     }

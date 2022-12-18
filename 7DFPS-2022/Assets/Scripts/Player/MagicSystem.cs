@@ -5,8 +5,6 @@ using UnityEngine;
 public class MagicSystem : MonoBehaviour
 {
 
-    [SerializeField] private Player player;
-
     public bool SystemLocked = false;
     [SerializeField] private Spell spellToCastRH;
     [SerializeField] private Spell spellToCastLH;
@@ -34,6 +32,9 @@ public class MagicSystem : MonoBehaviour
     {
         HUDManager.instance.UpdateManaSlider();
         rightHandAnim.SetFloat("ChargeSpeed", 1.1f+spellToCastRH.SpellToCast.ChargeTime / 0.792f);
+        HUDManager.instance.UpdateChargeLH(currentChargeTimerLH, spellToCastLH.SpellToCast.ChargeTime);
+        HUDManager.instance.UpdateChargeRH(currentChargeTimerRH, spellToCastRH.SpellToCast.ChargeTime);
+
     }
 
     private void Update()
@@ -60,7 +61,7 @@ public class MagicSystem : MonoBehaviour
                 rightHandCharge.SetBool("Charging", true);
                 isChargingRH = true;
                 currentChargeTimerRH += Time.deltaTime;
-                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
+                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH, spellToCastRH.SpellToCast.ChargeTime);
             }
 
             if (isSpellReleasing && isChargingRH)
@@ -90,7 +91,7 @@ public class MagicSystem : MonoBehaviour
 
                 currentCastTimerRH = 0;
                 currentChargeTimerRH = 0;
-                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH);
+                HUDManager.instance.UpdateChargeRH(currentChargeTimerRH, spellToCastRH.SpellToCast.ChargeTime);
             }
 
             //gives a small cooldown between casting spells
@@ -120,7 +121,7 @@ public class MagicSystem : MonoBehaviour
                 lefttHandCharge.SetBool("Charging", true);
                 isChargingLH = true;
                 currentChargeTimerLH += Time.deltaTime;
-                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
+                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH, spellToCastLH.SpellToCast.ChargeTime);
             }
 
             if (isSpellReleasing && isChargingLH)
@@ -148,7 +149,7 @@ public class MagicSystem : MonoBehaviour
 
                 currentCastTimerLH = 0;
                 currentChargeTimerLH = 0;
-                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH);
+                HUDManager.instance.UpdateChargeLH(currentChargeTimerLH, spellToCastLH.SpellToCast.ChargeTime);
             }
 
             //gives a small cooldown between casting spells
