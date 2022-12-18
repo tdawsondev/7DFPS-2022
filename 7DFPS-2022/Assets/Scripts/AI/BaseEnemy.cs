@@ -22,6 +22,7 @@ public class BaseEnemy : MonoBehaviour
         {
             SpawnManager.instance.spawnCount--;
             Destroy(gameObject);
+            ScoreManager.instance.GainXP(1);
         }
 
     }

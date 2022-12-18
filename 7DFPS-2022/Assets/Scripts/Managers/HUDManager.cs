@@ -21,6 +21,8 @@ public class HUDManager : MonoBehaviour
     public Slider HealthSlider;
     public TextMeshProUGUI chargeRHText; // temporary
     public TextMeshProUGUI chargeLHText; //temporary
+    public TextMeshProUGUI xpText; //temporary
+    public TextMeshProUGUI scoreText; //temporary
 
     public CanvasGroup Top, Bottom, Left, Right;
 
@@ -56,6 +58,12 @@ public class HUDManager : MonoBehaviour
     public void UpdateChargeLH(float currentCharge)
     {
         chargeLHText.text = "Charge Left: " + currentCharge.ToString("n2");
+    }
+
+    public void UpdateXP(float currentXP, float currentScore)
+    {
+        xpText.text = "XP: " + currentXP.ToString();
+        scoreText.text = "Score: " + currentScore.ToString();
     }
 
     public void StartDecay(CanvasGroup group)
