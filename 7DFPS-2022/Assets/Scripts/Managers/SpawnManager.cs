@@ -22,6 +22,8 @@ public class SpawnManager : MonoBehaviour
     public int spawnCount = 0;
     public int targetSpawnCount = 5;
 
+    private int attemptCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class SpawnManager : MonoBehaviour
 
     public Vector3 GetPostionAroundPlayer()
     {
+        attemptCount++;
         Vector3 center = Player.Instance.transform.position;
         Vector3 direction = Random.insideUnitSphere;
         direction += center;
@@ -63,6 +66,12 @@ public class SpawnManager : MonoBehaviour
 
         NavMeshHit hit;
         NavMesh.SamplePosition(direction, out hit, maxSpawnDistance, 1);
+        //Debug.Log("Original: " + direction + " Hit: " + hit.position + " Distance: "+Vector3.Distance(Player.Instance.transform.position, hit.position));
+        if(Vector3.Distance(Player.Instance.transform.position, hit.position) < minSpawnDistance && attemptCount < 4)
+        {
+            return GetPostionAroundPlayer();
+        }
+        attemptCount = 0;
         return hit.position;
     }
 

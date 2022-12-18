@@ -9,6 +9,7 @@ public class AltarBehavior : MonoBehaviour
     ParticleSystem particles;
     [SerializeField] Light activeLight;
     [SerializeField] Outline outline;
+    [SerializeField] float xpAmount;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class AltarBehavior : MonoBehaviour
                 isActive = false;
                 particles.Stop();
                 outline.enabled = false;
+                ScoreManager.instance.GainXP(xpAmount);
                 activeLight.gameObject.SetActive(false);
             }
         }
