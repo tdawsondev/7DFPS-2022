@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4661534881240416089}
   - component: {fileID: 2904795166437921993}
   - component: {fileID: 35623898562346846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4661534881240416089
 Transform:
   m_ObjectHideFlags: 0
@@ -4823,7 +4823,7 @@ GameObject:
   - component: {fileID: 6381367618106126201}
   - component: {fileID: 6608123895079553916}
   - component: {fileID: 8372854361510772214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireballGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 4595062817515346033}
   - component: {fileID: -3050203279680173592}
   - component: {fileID: 72749523422554396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spell_Fireball
   m_TagString: Spell
   m_Icon: {fileID: 0}
@@ -4945,6 +4945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellToCast: {fileID: 11400000, guid: e372bd0576a783848bbb07c134a8d777, type: 2}
+  impactPrefab: {fileID: 4601281742552291421, guid: 355802086173a4f478a377807629a44a,
+    type: 3}
 --- !u!54 &-3050203279680173592
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4986,7 +4988,7 @@ GameObject:
   - component: {fileID: 4523789109487801213}
   - component: {fileID: 1271637759348883471}
   - component: {fileID: 280274591178297787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

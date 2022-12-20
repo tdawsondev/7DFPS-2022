@@ -344,8 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e526c59532dd84cb5134067e134729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 1
-  currentHP: 1
+  maxHP: 2
+  currentHP: 2
 --- !u!114 &7941631087505450554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +453,11 @@ MonoBehaviour:
   health: {fileID: 7941631087505450501}
   agent: {fileID: 7941631087505450555}
   XpValue: 100
+  FlashColor: {fileID: 2100000, guid: 851344a6a23d6db4bbac01303f96f817, type: 2}
+  mesh: {fileID: 8788707345524686108}
+  skinnedMeshRenderer: {fileID: 0}
+  explosionPrefab: {fileID: 9073062526453352583, guid: 15885ccea99765d4a88d003830be942d,
+    type: 3}
   minFlyHeight: 2
   maxFlyHeight: 5
 --- !u!114 &1257336102
@@ -703,6 +708,12 @@ PrefabInstance:
 --- !u!4 &7619226458745112179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67826dcb31f184e4aa9f792671801c86,
+    type: 3}
+  m_PrefabInstance: {fileID: 7941631088353337752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8788707345524686108 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 67826dcb31f184e4aa9f792671801c86,
     type: 3}
   m_PrefabInstance: {fileID: 7941631088353337752}
   m_PrefabAsset: {fileID: 0}

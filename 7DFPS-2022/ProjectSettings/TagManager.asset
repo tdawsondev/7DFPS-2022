@@ -15,9 +15,9 @@ TagManager:
   - UI
   - FPS
   - Walkable
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - Player
+  - SpecialUI
   - 
   - 
   - 

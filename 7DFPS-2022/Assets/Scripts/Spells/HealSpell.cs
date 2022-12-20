@@ -11,6 +11,7 @@ public class HealSpell : Spell
         {
             Player.Instance.health.Heal(SpellToCast.Healing);
             Player.Instance.mana.LoseMana(SpellToCast.ManaCost);
+            Player.Instance.healAnim.Play();
         }
     }
 

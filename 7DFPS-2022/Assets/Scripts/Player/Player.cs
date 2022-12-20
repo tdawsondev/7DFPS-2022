@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public Light manaLight;
     public bool IgnoreDeath = false;
     public Animator hitAnimator;
+    public ParticleSystem healAnim;
 
     private void OnDestroy()
     {

@@ -10,10 +10,12 @@ public class ProjectileSpell : Spell
 
     private bool launched;
     private string tagToHit;
+    [SerializeField] GameObject impactPrefab;
 
     private void Awake()
     {
         Destroy(this.gameObject, SpellToCast.LifeTime);
+        Physics.IgnoreLayerCollision(8, 9);
     }
 
     public void Update()
@@ -33,7 +35,7 @@ public class ProjectileSpell : Spell
         {
             if (tagToHit == "Enemy")
             {
-                other.gameObject.GetComponent<EnemyReference>().baseEnemy.health.Damage(SpellToCast.Damage);
+                other.gameObject.GetComponent<EnemyReference>().baseEnemy.health.Damage(SpellToCast.Damage + Player.Instance.magicSystem.DamageBounus);
             }
             else
             {
@@ -42,7 +44,10 @@ public class ProjectileSpell : Spell
         }
 
         if (other.tag != "Spell")
+        {
+            Destroy(Instantiate(impactPrefab, transform.position, Quaternion.identity), 2.6f);
             Destroy(this.gameObject);
+        }
 
     }
 

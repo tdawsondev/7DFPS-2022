@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator rhAnim;
     [SerializeField] Animator lhAnim;
     int lastPlayed = 0; // 0 = rh; 1 = lh;
+    public Camera UICamera;
 
 
     private void Start()
@@ -104,15 +105,15 @@ public class PlayerMovement : MonoBehaviour
         {
             sprinting = false;
         }
-        if (InputManager.Instance.PressedCrouch())
-        {
-            crouching = true;
-            sprinting = false;
-        }
-        if (InputManager.Instance.ReleasedCrouch())
-        {
-            crouching = false;
-        }
+        //if (InputManager.Instance.PressedCrouch())
+        //{
+        //    crouching = true;
+        //    sprinting = false;
+        //}
+        //if (InputManager.Instance.ReleasedCrouch())
+        //{
+        //    crouching = false;
+        //}
         
 
         Vector2 input = GetSmoothedInput();
@@ -152,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        UICamera.fieldOfView = Camera.main.fieldOfView;
     }
 
     /// <summary>

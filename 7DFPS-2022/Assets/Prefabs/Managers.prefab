@@ -95,6 +95,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2382842419871218632
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,9 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78475344e028304479185d1a7421d92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xpToNextLevel: 1500
+  xpToNextLevel: 500
   manaIncrease: 10
   healthIncrease: 10
+  level: 0
   score: 0
 --- !u!1001 &1884182350539623405
 PrefabInstance:
@@ -252,13 +255,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
         type: 3}
+      propertyPath: spawnPrefab
+      value: 
+      objectReference: {fileID: 8298180959497593658, guid: 7da581c142a68ba419867283dc01ea7f,
+        type: 3}
+    - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
+        type: 3}
       propertyPath: minSpawnDistance
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
         type: 3}
       propertyPath: targetSpawnCount
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4266170344274446123, guid: e53b7c5a4d9c6a7489a3d2f7c8c1c2ae,
         type: 3}

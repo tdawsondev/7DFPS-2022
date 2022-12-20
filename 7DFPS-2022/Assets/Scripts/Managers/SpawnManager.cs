@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     public List<GameObject> enemyPrefabs;
+    public GameObject spawnPrefab;
     public float minSpawnDistance;
     public float maxSpawnDistance;
     public float spawnTime = 3f;
@@ -49,11 +50,19 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnRandomEnemy()
     {
+        StartCoroutine(SpawnEnumerator());
+        
+    }
+    IEnumerator SpawnEnumerator()
+    {
         spawnCount++;
         int rand = Random.Range(0, enemyPrefabs.Count);
-        BaseEnemy enemy = Instantiate(enemyPrefabs[rand], GetPostionAroundPlayer(), Quaternion.identity).GetComponent<BaseEnemy>();
+        Vector3 position = GetPostionAroundPlayer();
+        AudioManager.instance.PlayAtPositition("EnemySpawn", position);
+        Destroy(Instantiate(spawnPrefab, new Vector3 (position.x, position.y +0.5f, position.z), Quaternion.identity), .6f);
+        yield return new WaitForSeconds(.5f);
+        BaseEnemy enemy = Instantiate(enemyPrefabs[rand], position, Quaternion.identity).GetComponent<BaseEnemy>();
         enemy.OnSpawn();
-        
     }
 
     public Vector3 GetPostionAroundPlayer()

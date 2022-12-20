@@ -27,6 +27,9 @@ public class MagicSystem : MonoBehaviour
     public Animator lefttHandCharge;
 
     private AudioSource chargingSound;
+    public float DamageBounus = 0;
+
+    public bool cantCast = false;
 
     private void Start()
     {
@@ -37,8 +40,39 @@ public class MagicSystem : MonoBehaviour
 
     }
 
+    void CantCastLeft()
+    {
+        if (chargingSound)
+        {
+            chargingSound.Stop();
+        }
+        lefttHandCharge.SetBool("Charging", false);
+        leftHandAnim.SetBool("Charging", false);
+        currentCastTimerLH = 0f;
+
+
+    }
+    void CantCastRight()
+    {
+        if (chargingSound)
+        {
+            chargingSound.Stop();
+        }
+        rightHandCharge.SetBool("Charging", false);
+        rightHandAnim.SetBool("Charging", false);
+        currentChargeTimerRH = 0f;
+    }
+
+
     private void Update()
     {
+        if (cantCast)
+        {
+            CantCastLeft();
+            CantCastRight();
+            
+            return;
+        }
 
         RightMagic();
         LeftMagic();
@@ -47,6 +81,7 @@ public class MagicSystem : MonoBehaviour
         void RightMagic()
         {
             if (SystemLocked) return; // ignores update function if system is locked
+            
 
             bool isSpellCastHeldDown = InputManager.Instance.IsCharging1();
             bool isSpellReleasing = InputManager.Instance.IsUnReleasing1();
@@ -113,6 +148,11 @@ public class MagicSystem : MonoBehaviour
 
             if (isSpellCastHeldDown && !castingMagicLH)
             {
+                if (!HasEnoughMana(spellToCastLH))
+                {
+                    CantCastLeft();
+                    return;
+                }
                 if(chargingSound == null || !chargingSound.isPlaying && HasEnoughMana(spellToCastLH))
                 {
                     chargingSound = AudioManager.instance.Play("SpellCharge");

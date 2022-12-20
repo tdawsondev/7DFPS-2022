@@ -62,7 +62,8 @@ public class AudioManager : MonoBehaviour
         return s.source;
 
     }
-    public void PlayAtPositition(string name, Transform t, bool isPlayer)
+
+    public void PlayAtPositition(string name, Vector3 position)
     {
         Sound s = Array.Find(sounds, sound => sound.clipName == name);
         if (s == null)
@@ -83,12 +84,12 @@ public class AudioManager : MonoBehaviour
 
         s.source.volume = s.source.volume * 20f;
 
-        AudioSource.PlayClipAtPoint(s.source.clip, t.position, s.source.volume);
+        AudioSource.PlayClipAtPoint(s.source.clip, position, s.source.volume);
 
     }
     public void PlayAtPositition(string name, Transform t)
     {
-        PlayAtPositition(name, t, false);
+        PlayAtPositition(name, t.position);
     }
 
     public void ChangeMasterVolume(float value)

@@ -20,7 +20,9 @@ public class Mana : MonoBehaviour
             currentMana = 0;
             AltarManager.instance.ActivateNewAltar();
             AudioManager.instance.StopSound("MainTheme");
-            AudioManager.instance.Play("Stinger");
+            Player.Instance.magicSystem.cantCast = true;
+            HUDManager.instance.DisplayInformation("Out of mana! Find the glowing altar to recharge");
+            //AudioManager.instance.Play("Stinger");
             AudioManager.instance.Play("Recharge");
         }
         ManaLowered(amount);

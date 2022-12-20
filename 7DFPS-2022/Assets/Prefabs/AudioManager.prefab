@@ -181,3 +181,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - clipName: CrystalShoot
+    type: 0
+    clip: {fileID: 8300000, guid: a6ffef7616f6dd948bbad972cf02bd44, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: EnemySpawn
+    type: 0
+    clip: {fileID: 8300000, guid: 084fc2b35a262564b8b7ac4288a709c1, type: 3}
+    volume: 0.5
+    pitch: 0.6
+    loop: 0
+    source: {fileID: 0}

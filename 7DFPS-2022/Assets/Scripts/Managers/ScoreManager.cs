@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
         xp = 0;
         score = 0;
         level = 0;
-        HUDManager.instance.UpdateXP(xp, xpToNextLevel);
+        HUDManager.instance.UpdateXP(xp, xpToNextLevel, level);
     }
 
     //called on BaseEnemy.TookDamage, xp changes made there
@@ -43,13 +43,26 @@ public class ScoreManager : MonoBehaviour
             xp -= xpToNextLevel;
             LevelUp();
         }
-        HUDManager.instance.UpdateXP(xp, xpToNextLevel);
+        HUDManager.instance.UpdateXP(xp, xpToNextLevel, level);
     }
 
     private void LevelUp()
     {
         level++;
-        MenuController.instance.ToggleLevelUp();
+        if(level == 5 || level == 10)
+        {
+            Player.Instance.magicSystem.DamageBounus++;
+        }
+        MenuController.instance.ToggleLevelUp(level);
+        xpToNextLevel = Mathf.Round((xpToNextLevel*1.25f) / 5f) * 5;
+        GainXP(0);
+
+        //IncreaseNumberOfEnemies
+        if(level % 2 == 0)
+        {
+            SpawnManager.instance.targetSpawnCount++;
+        }
+        
     }
 
     public void IncreaseMaxHealth()

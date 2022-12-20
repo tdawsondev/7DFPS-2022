@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuController : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class MenuController : MonoBehaviour
     public GameObject gameOverMenu;
     public bool cantPause = false;
     public GameObject levelUpMenu;
+    public TMP_Text levelMenuText;
+    public GameObject DamageIncreaseText;
+    public TMP_Text gameOverLevelText;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +39,9 @@ public class MenuController : MonoBehaviour
             pauseMenu.SetActive(false);
         if(gameOverMenu)
             gameOverMenu.SetActive(false);
+
+        if(DamageIncreaseText)
+            DamageIncreaseText.SetActive(false);
 
     }
 
@@ -124,15 +132,26 @@ public class MenuController : MonoBehaviour
         Freeze();
         AudioManager.instance.Play("GameOver");
         cantPause = true;
+        gameOverLevelText.text = "You made it to level " + ScoreManager.instance.level + "!";
         gameOverMenu.SetActive(true);
     }
 
-    public void ToggleLevelUp()
+    public void ToggleLevelUp(int newLevel)
     {
         if (levelUpMenu == null || cantPause) return;
         if (!paused)
         {
             paused = true;
+            levelMenuText.text = "You reached level: "+newLevel;
+            if(newLevel == 5 || newLevel == 10)
+            {
+                DamageIncreaseText.SetActive(true);
+            }
+            else
+            {
+                DamageIncreaseText.SetActive(false);
+            }
+            AudioManager.instance.Play("Stinger");
             levelUpMenu.SetActive(true);
             Freeze();
         }
