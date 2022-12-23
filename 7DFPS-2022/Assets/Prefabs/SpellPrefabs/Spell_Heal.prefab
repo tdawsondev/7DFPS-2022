@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellToCast: {fileID: 11400000, guid: 898490205366a1b4090f6f4fd28066b0, type: 2}
+  chargingPrefab: {fileID: 7718660809841510309, guid: c16fbf2141f1a4e44b8f9c45f4276009,
+    type: 3}

@@ -15,6 +15,8 @@ public class MagicSystem : MonoBehaviour
 
     public bool cantCast = false;
 
+    public Spell freezeSpell;
+
     private void Start()
     {
         HUDManager.instance.UpdateManaSlider();
@@ -54,6 +56,11 @@ public class MagicSystem : MonoBehaviour
         {
             leftHand.isCharging = false;
             leftHand.OnRelease();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            rightHand.EquipSpell(freezeSpell);
         }
 
 

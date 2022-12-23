@@ -61,6 +61,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellToCast: {fileID: 11400000, guid: 1a275166a59d3a748988e5ceb4c8a4d3, type: 2}
+  chargingPrefab: {fileID: 7718660809841510309, guid: c16fbf2141f1a4e44b8f9c45f4276009,
+    type: 3}
+  impactPrefab: {fileID: 4601281742552291421, guid: 355802086173a4f478a377807629a44a,
+    type: 3}
 --- !u!54 &3241415872834202333
 Rigidbody:
   m_ObjectHideFlags: 0

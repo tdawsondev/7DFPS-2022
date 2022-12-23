@@ -4945,6 +4945,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellToCast: {fileID: 11400000, guid: e372bd0576a783848bbb07c134a8d777, type: 2}
+  chargingPrefab: {fileID: 2318514525284678547, guid: 02d5551c69fbc9f43bd9f2fcebb2d22f,
+    type: 3}
   impactPrefab: {fileID: 4601281742552291421, guid: 355802086173a4f478a377807629a44a,
     type: 3}
 --- !u!54 &-3050203279680173592

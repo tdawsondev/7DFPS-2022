@@ -26,7 +26,7 @@ public class Hand : MonoBehaviour
         castingMagic = false;
         currentChargeTimer = 0f;
         castPoint = Player.Instance.magicSystem.castPoint;
-        handAnim.SetFloat("ChargeSpeed", 1.1f + spell.SpellToCast.ChargeTime / 0.792f);
+        EquipSpell(spell);
         UpdateHUD();
 
     }
@@ -122,6 +122,22 @@ public class Hand : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void EquipSpell(Spell spell)
+    {
+        this.spell = spell;
+        handAnim.SetFloat("ChargeSpeed", .792f / spell.SpellToCast.ChargeTime); // .792 is the default animation time;
+        chargeAnim.SetFloat("ChargeSpeed", .583f / spell.SpellToCast.ChargeTime);
+        StopCharging();
+        foreach(Transform child in chargeAnim.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        GameObject newParticles = Instantiate(spell.chargingPrefab, chargeAnim.transform);
+        newParticles.transform.localPosition = Vector3.zero;
+        newParticles.transform.localRotation = Quaternion.identity;
+        UpdateHUD();
     }
 
 }
