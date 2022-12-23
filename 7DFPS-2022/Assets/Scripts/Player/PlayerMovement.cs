@@ -129,6 +129,11 @@ public class PlayerMovement : MonoBehaviour
             audioPlaying = false;
             StopAllCoroutines();
         }
+        if(input.y < 0f)
+        {
+            sprinting = false;
+        }
+
         GetMovementSpeed(input);
 
         Vector3 move = new Vector3(input.x, 0, input.y);
@@ -138,9 +143,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 camRight = cameraTransform.right;
         camRight.y = 0f;
         camRight = camRight.normalized; // get cam right, disregarding y
-        move = camForward * move.z + camRight * move.x;
+        move = camForward * (input.y > 0f ? movementSpeed : playerSpeed)* move.z + camRight * playerSpeed * move.x;
         move.y = 0f;
-        controller.Move(move * Time.deltaTime * movementSpeed);
+        controller.Move(move * Time.deltaTime );
 
 
        // jumps. built to allow for double joints if thats an option we want.
