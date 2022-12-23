@@ -195,3 +195,17 @@ MonoBehaviour:
     pitch: 0.6
     loop: 0
     source: {fileID: 0}
+  - clipName: SpellChargeLeft
+    type: 0
+    clip: {fileID: 8300000, guid: f258421b479af1944b6507fb5cbfafae, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clipName: SpellChargeRight
+    type: 0
+    clip: {fileID: 8300000, guid: f258421b479af1944b6507fb5cbfafae, type: 3}
+    volume: 0.75
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
