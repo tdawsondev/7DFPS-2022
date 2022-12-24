@@ -347,7 +347,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 23a4f7f6c2666ef4dbadffb4a5f87af8, type: 3}
+  - {fileID: 2100000, guid: b24f12599b0026949b02016092898f41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -959,6 +959,7 @@ MonoBehaviour:
   rightHand: {fileID: 7458700592310174760}
   leftHand: {fileID: 8526191344786855019}
   cantCast: 0
+  freezeSpell: {fileID: 0}
 --- !u!114 &1621471532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,7 +2067,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 5
+  m_Range: 2.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3233,7 +3234,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 23a4f7f6c2666ef4dbadffb4a5f87af8, type: 3}
+  - {fileID: 2100000, guid: b24f12599b0026949b02016092898f41, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

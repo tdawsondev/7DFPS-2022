@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[System.Serializable]
+public enum EnemyType
+{
+    Any,
+    Cyrstal,
+    Imp
+}
+
 public class BaseEnemy : MonoBehaviour
 {
+    public EnemyType EnemyType;
     public Health health;
     public NavMeshAgent agent;
     public int XpValue;
@@ -28,6 +37,7 @@ public class BaseEnemy : MonoBehaviour
         {
             SpawnManager.instance.spawnCount--;
             ScoreManager.instance.GainXP(XpValue);
+            CombatManager.instance.EnemyKilled(this);
             Destroy(Instantiate(explosionPrefab, transform.position, Quaternion.identity), 3f);
             Destroy(gameObject);  
         }

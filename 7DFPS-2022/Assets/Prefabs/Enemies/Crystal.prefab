@@ -450,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796e3817c4efae84eaeb47579caea026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyType: 1
   health: {fileID: 7941631087505450501}
   agent: {fileID: 7941631087505450555}
   XpValue: 100

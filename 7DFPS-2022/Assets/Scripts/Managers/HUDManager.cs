@@ -31,6 +31,9 @@ public class HUDManager : MonoBehaviour
     public CanvasGroup lowHealthBorder;
     public TMP_Text healthText;
     public TMP_Text manaText;
+    public GameObject QuestUIPrefab;
+    public Transform questUIParent;
+    public GameObject questsUI;
 
     public CanvasGroup Top, Bottom, Left, Right;
 
@@ -39,6 +42,7 @@ public class HUDManager : MonoBehaviour
     {
         UpdateHealth();
         DisplayInformation("Slay enemies and stay alive as long as you can...");
+        questsUI.SetActive(false);
     }
 
     public void UpdateManaSlider()
@@ -131,5 +135,25 @@ public class HUDManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         yield return null;
+    }
+
+    public void UpdateQuests() // can be optimized.
+    {
+        if(QuestManager.instance.quests.Count <= 0)
+        {
+            questsUI.SetActive(false);
+            return;
+        }
+        foreach(Transform t in questUIParent)
+        {
+            Destroy(t.gameObject);
+        }
+        questsUI.SetActive(true);
+        foreach(Quest q in QuestManager.instance.quests)
+        {
+            QuestUI qui = Instantiate(QuestUIPrefab, questUIParent).GetComponent<QuestUI>();
+            qui.UpdateQuest(q);
+        }
+
     }
 }
