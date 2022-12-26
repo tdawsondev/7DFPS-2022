@@ -46,6 +46,7 @@ public class Quest
     public void Complete()
     {
         Completed = true;
+        QuestManager.instance.RemoveQuest(this);
         GiveReward();
         
     }

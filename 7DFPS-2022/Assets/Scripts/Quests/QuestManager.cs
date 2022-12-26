@@ -18,4 +18,10 @@ public class QuestManager : MonoBehaviour
         HUDManager.instance.UpdateQuests();
     }
 
+    public void RemoveQuest(Quest quest)
+    {
+        quests.Remove(quest);
+        HUDManager.instance.UpdateQuests();
+    }
+
 }
