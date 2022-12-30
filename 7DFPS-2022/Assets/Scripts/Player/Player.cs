@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
     public Animator hitAnimator;
     public ParticleSystem healAnim;
 
+    // yikes
+    public bool hasBlue = false;
+    public bool hasGreen = false;
+    public bool hasRed = false;
+
     private void OnDestroy()
     {
         health.Damaged -= TookDamage;

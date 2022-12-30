@@ -283,4 +283,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void Teleport(Vector3 postion)
+    {
+        controller.enabled = false;
+        transform.position = postion;
+        controller.enabled = true;
+    }
+
 }
