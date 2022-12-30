@@ -122,4 +122,6 @@ public class Player : MonoBehaviour
             manaLight.intensity = 1f;
         }
     }
+
+
 }

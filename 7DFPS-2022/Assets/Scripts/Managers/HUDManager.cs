@@ -35,6 +35,8 @@ public class HUDManager : MonoBehaviour
     public Transform questUIParent;
     public GameObject questsUI;
 
+    public GameObject redCircle, blueCircle, greenCircle;
+
     public CanvasGroup Top, Bottom, Left, Right;
 
     // Start is called before the first frame update
@@ -42,6 +44,7 @@ public class HUDManager : MonoBehaviour
     {
         UpdateHealth();
         DisplayInformation("Slay enemies and stay alive as long as you can...");
+        UpdateQuestItems();
         questsUI.SetActive(false);
     }
 
@@ -155,5 +158,12 @@ public class HUDManager : MonoBehaviour
             qui.UpdateQuest(q);
         }
 
+    }
+
+    public void UpdateQuestItems()
+    {
+        blueCircle.SetActive(Player.Instance.hasBlue);
+        redCircle.SetActive(Player.Instance.hasRed);
+        greenCircle.SetActive(Player.Instance.hasGreen);
     }
 }

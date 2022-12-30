@@ -60,7 +60,7 @@ public class MagicSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            rightHand.EquipSpell(freezeSpell);
+            //rightHand.EquipSpell(freezeSpell);
         }
 
 

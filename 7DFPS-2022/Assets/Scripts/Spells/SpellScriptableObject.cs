@@ -17,6 +17,11 @@ public class SpellScriptableObject : ScriptableObject
     public float Speed = 15f;
     public float SpellRadius = 0.5f;
 
+    //AOE
+    public bool AOE = false;
+    public float AOEDamage = 1f;
+    public float AOERange = 5f;
+
     //Buff spell variables
     public float Healing = 3f;
 

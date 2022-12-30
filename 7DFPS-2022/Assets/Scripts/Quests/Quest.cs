@@ -19,6 +19,9 @@ public class Quest
     public string Description { get; set; }
     public bool Completed { get; set; }
 
+    public string whichReward;// this is all sloppy too, but also for prototyping. Can be reworked with actual inventory system.
+    public int xpAmount;
+
     public void Init()
     {
         foreach(GoalSO goal in questSO.Goals)
@@ -27,6 +30,8 @@ public class Quest
         }
         QuestName = questSO.QuestName;
         Description = questSO.Description;
+        xpAmount = questSO.Xpamount;
+        whichReward = questSO.WhichReward;
         Completed = false;
         Goals.ForEach(g => { g.Init(); g.Quest = this; });
         
@@ -52,6 +57,25 @@ public class Quest
     }
     public void GiveReward()
     {
-
+        if(whichReward != "") // replace this with actual xp system
+        {
+            if(whichReward == "Blue")
+            {
+                Player.Instance.hasBlue = true;
+            }
+            if (whichReward == "Red")
+            {
+                Player.Instance.hasRed = true;
+            }
+            if (whichReward == "Green")
+            {
+                Player.Instance.hasGreen = true;
+            }
+            HUDManager.instance.UpdateQuestItems();
+        }
+        if(xpAmount > 0)
+        {
+           ScoreManager.instance.GainXP(xpAmount);
+        }
     }
 }

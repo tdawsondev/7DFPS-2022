@@ -28,17 +28,21 @@ public class GemHolder : MonoBehaviour
             // yikes
             if(Player.Instance.hasBlue && color == "Blue")
             {
+                Player.Instance.hasBlue = false;
                 AddObject();
             }
             if (Player.Instance.hasRed && color == "Red")
             {
+                Player.Instance.hasRed = false;
                 AddObject();
             }
             if (Player.Instance.hasGreen && color == "Green")
             {
+                Player.Instance.hasGreen = false;
                 AddObject();
             }
-            
+            HUDManager.instance.UpdateQuestItems();
+
         }
     }
 
@@ -46,7 +50,7 @@ public class GemHolder : MonoBehaviour
     {
         objectEffect.SetActive(true);
         hasObject = true;
-
+        AudioManager.instance.Play("Stinger");
         bool openPortal = true;
         foreach(GemHolder holder in otherHolders)
         {
@@ -57,5 +61,6 @@ public class GemHolder : MonoBehaviour
         {
             portal.Activate();
         }
+        
     }
 }

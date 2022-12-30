@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
     {
         if(active && other.tag == "Player")
         {
+            AudioManager.instance.Play("Teleport");
             Player.Instance.playerMovement.Teleport(teleportPoint.position);
         }
     }

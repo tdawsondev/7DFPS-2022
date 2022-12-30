@@ -7,6 +7,8 @@ public class QuestSO : ScriptableObject
     public List<GoalSO> Goals;
     public string QuestName;
     public string Description;
+    public string WhichReward;
+    public int Xpamount;
 
     public Quest CreateQuest()
     {

@@ -127,7 +127,7 @@ public class Hand : MonoBehaviour
     public void EquipSpell(Spell spell)
     {
         this.spell = spell;
-        handAnim.SetFloat("ChargeSpeed", .792f / spell.SpellToCast.ChargeTime); // .792 is the default animation time;
+        handAnim.SetFloat("ChargeSpeed", (.792f / spell.SpellToCast.ChargeTime) +.45f); // .792 is the default animation time;
         chargeAnim.SetFloat("ChargeSpeed", .583f / spell.SpellToCast.ChargeTime);
         StopCharging();
         foreach(Transform child in chargeAnim.transform)

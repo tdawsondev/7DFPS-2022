@@ -45,7 +45,7 @@ public class ProjectileSpell : Spell
 
         if (other.tag != "Spell")
         {
-            Destroy(Instantiate(impactPrefab, transform.position, Quaternion.identity), 2.6f);
+            Destroy(Instantiate(impactPrefab, transform.position, Quaternion.identity), 1f);
             Destroy(this.gameObject);
         }
 

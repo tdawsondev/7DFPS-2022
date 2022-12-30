@@ -15,5 +15,7 @@ MonoBehaviour:
   Goals:
   - {fileID: 11400000, guid: fc99e5c3dfdf88d4d9eb8225a4511aee, type: 2}
   - {fileID: 11400000, guid: 80e9dc595251e354bbea161dc21fad43, type: 2}
-  QuestName: A Game Changer
+  QuestName: Red Orb
   Description: Unlock a new spell.
+  WhichReward: Red
+  Xpamount: 0
