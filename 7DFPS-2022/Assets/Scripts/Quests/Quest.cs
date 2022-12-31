@@ -7,6 +7,7 @@ using System.Linq;
 public class Quest 
 {
     public QuestSO questSO;
+    public List<QuestSO> nextQuest;
 
     public Quest(QuestSO questSO)
     {
@@ -32,6 +33,7 @@ public class Quest
         Description = questSO.Description;
         xpAmount = questSO.Xpamount;
         whichReward = questSO.WhichReward;
+        nextQuest = questSO.nextQuest;
         Completed = false;
         Goals.ForEach(g => { g.Init(); g.Quest = this; });
         
@@ -52,6 +54,13 @@ public class Quest
     {
         Completed = true;
         QuestManager.instance.RemoveQuest(this);
+        if(nextQuest != null)
+        {
+            foreach (QuestSO quest in nextQuest)
+            {
+                QuestManager.instance.AddQuest(quest.CreateQuest());
+            }
+        }
         GiveReward();
         
     }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ba164e249452e49b6a4a73d8c14ae1, type: 3}
+  m_Name: StartingOut
+  m_EditorClassIdentifier: 
+  Goals:
+  - {fileID: 11400000, guid: 88fa88090f9e0d14586e6e9cfcffb2d3, type: 2}
+  QuestName: Getting Started
+  Description: Reach level 5
+  WhichReward: 
+  Xpamount: 200
+  nextQuest:
+  - {fileID: 11400000, guid: 9579c6c51e43e0c4997525b356c08336, type: 2}
+  - {fileID: 11400000, guid: 4de37b06d6ea00248a5d86a999b4a6b7, type: 2}

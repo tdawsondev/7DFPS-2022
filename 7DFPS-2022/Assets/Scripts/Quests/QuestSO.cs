@@ -9,6 +9,7 @@ public class QuestSO : ScriptableObject
     public string Description;
     public string WhichReward;
     public int Xpamount;
+    public List<QuestSO> nextQuest;
 
     public Quest CreateQuest()
     {

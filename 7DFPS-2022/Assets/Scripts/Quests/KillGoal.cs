@@ -24,7 +24,7 @@ public class KillGoal : Goal
 
     void EnemyDied(BaseEnemy enemy)
     {
-        if(enemy.EnemyType == EnemyType)
+        if(EnemyType == EnemyType.Any || enemy.EnemyType == EnemyType)
         {
             CurrentAmount++;
             Evaluate();

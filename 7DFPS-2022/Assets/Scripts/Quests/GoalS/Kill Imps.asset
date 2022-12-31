@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Kill Imps
   m_EditorClassIdentifier: 
   Description: Kill Imps
-  RequiredAmount: 2
+  RequiredAmount: 5
   enemyType: 2

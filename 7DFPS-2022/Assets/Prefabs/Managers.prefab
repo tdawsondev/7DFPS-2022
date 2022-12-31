@@ -53,8 +53,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 607659949298709865}
+  - component: {fileID: 1149073764}
   m_Layer: 0
-  m_Name: ChallengeManager
+  m_Name: QuestManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,6 +76,20 @@ Transform:
   m_Father: {fileID: 2382842419871218631}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1149073764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683525367172653716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20b39d07a55a3a4c8d2659171a8abcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quests: []
+  starterQuest: {fileID: 11400000, guid: 67509351dfa21be4ea64edc6b6a4dda7, type: 2}
 --- !u!1 &2382842419067445199
 GameObject:
   m_ObjectHideFlags: 0

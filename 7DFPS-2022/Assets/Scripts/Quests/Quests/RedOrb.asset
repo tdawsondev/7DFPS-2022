@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ba164e249452e49b6a4a73d8c14ae1, type: 3}
+  m_Name: RedOrb
+  m_EditorClassIdentifier: 
+  Goals:
+  - {fileID: 11400000, guid: 40b732bf9ddb46443b2f0809f80ed207, type: 2}
+  QuestName: Red Orb
+  Description: 
+  WhichReward: Red
+  Xpamount: 100
+  nextQuest: []

@@ -25,6 +25,11 @@ public class ScoreManager : MonoBehaviour
     //total xp gained
     public float score;
 
+
+    public delegate void OnLevelUp(int newLevel);
+
+    public event OnLevelUp LeveledUp;
+
     private void Start()
     {
         xp = 0;
@@ -56,7 +61,10 @@ public class ScoreManager : MonoBehaviour
         MenuController.instance.ToggleLevelUp(level);
         xpToNextLevel = Mathf.Round((xpToNextLevel*1.25f) / 5f) * 5;
         GainXP(0);
-
+        if(LeveledUp != null)
+        {
+            LeveledUp(level);
+        }
         //IncreaseNumberOfEnemies
         if(level % 2 == 0)
         {

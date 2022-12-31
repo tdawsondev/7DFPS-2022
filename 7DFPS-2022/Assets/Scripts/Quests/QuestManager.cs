@@ -11,6 +11,12 @@ public class QuestManager : MonoBehaviour
     }
 
     public List<Quest> quests = new List<Quest>();
+    public QuestSO starterQuest;
+
+    public void Start()
+    {
+        AddQuest(starterQuest.CreateQuest());
+    }
 
     public void AddQuest(Quest quest)
     {
