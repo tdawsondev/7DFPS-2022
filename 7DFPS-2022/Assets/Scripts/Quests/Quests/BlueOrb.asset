@@ -19,5 +19,4 @@ MonoBehaviour:
   Description: 
   WhichReward: Blue
   Xpamount: 500
-  nextQuest:
-  - {fileID: 11400000, guid: d44ffd1f2b08d904e9805155d0f93369, type: 2}
+  nextQuest: []

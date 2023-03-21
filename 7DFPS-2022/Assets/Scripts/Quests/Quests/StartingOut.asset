@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Goals:
   - {fileID: 11400000, guid: 88fa88090f9e0d14586e6e9cfcffb2d3, type: 2}
+  - {fileID: 11400000, guid: 4ad01c625a3c0cb49a5e797e27b8a5bf, type: 2}
   QuestName: Getting Started
   Description: Reach level 5
   WhichReward: 
   Xpamount: 200
   nextQuest:
-  - {fileID: 11400000, guid: 9579c6c51e43e0c4997525b356c08336, type: 2}
-  - {fileID: 11400000, guid: 4de37b06d6ea00248a5d86a999b4a6b7, type: 2}
+  - {fileID: 11400000, guid: 532fad0102c703e4080e50d4c41bbd7b, type: 2}

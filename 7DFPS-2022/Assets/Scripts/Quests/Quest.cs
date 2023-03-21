@@ -61,6 +61,7 @@ public class Quest
                 QuestManager.instance.AddQuest(quest.CreateQuest());
             }
         }
+        AudioManager.instance.Play("Stinger");
         GiveReward();
         
     }
